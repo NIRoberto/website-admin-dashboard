@@ -34,4 +34,4 @@ To start the application in production mode run the command below
 
 # Authors
 
-team Elite &copy;2021.
+Robert Niyitanga &copy;2021.
