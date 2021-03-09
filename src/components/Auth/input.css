@@ -1,0 +1,7 @@
+input:focus {
+  border-width: 2px;
+}
+
+textarea:focus {
+  border-width: 2px;
+}
