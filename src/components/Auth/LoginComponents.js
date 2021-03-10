@@ -7,7 +7,7 @@ import "./input.css";
 const LoginComponents = () => {
   return (
     <div className=" flex items-center justify-center">
-      <div className="bg-white w-7/12 mt-16 shadow-md rounded-md  flex  flex-col items-center justify-center">
+      <div className="bg-white w-11/12 md:w-7/12 mt-16 shadow-md rounded-md  flex  flex-col items-center justify-center">
         <Link to="/" className="w-full ">
           <img
             src={logo}
@@ -17,30 +17,30 @@ const LoginComponents = () => {
         </Link>
 
         <form className="flex-col items-center justify-center  w-full flex">
-          <div className="formControl flex-col flex w-6/12  items-center">
+          <div className="formControl flex-col flex w-4/5 md:w-6/12  items-center">
             <div className="w-full">
               <label htmlFor="Email">Email</label>
               <input
                 type="text"
-                className="p-2 focus:outline-none   w-full my-2 border-main rounded-md border"
+                className="p-2 focus:outline-none   w-full my-2 border-gray-400 rounded-md border"
                 name="Email"
                 placeholder="Email"
               />
             </div>
           </div>
 
-          <div className="formControl flex-col flex w-6/12    items-center">
+          <div className="formControl flex-col flex w-4/5 md:w-6/12    items-center">
             <div className="w-full">
               <label htmlFor="Password">Password</label>
               <input
                 type="text"
-                className="p-2 focus:outline-none  w-full border-main border rounded-md my-2"
+                className="p-2 focus:outline-none  w-full border-gray-400 border rounded-md my-2"
                 name="Password"
                 placeholder="password"
               />
             </div>
           </div>
-          <div className="flex justify-between mt-4 w-6/12">
+          <div className="flex justify-between mt-4 w-4/5 md:w-6/12">
             <div>
               Signup{" "}
               <Link to="/register" className="text-main">
@@ -55,7 +55,7 @@ const LoginComponents = () => {
             </div>
           </div>
         </form>
-        <div className="bg-blue-900 mt-6  cursor-pointer hover:bg-blue-800 transition duration-500 ease-in-out  w-6/12 rounded-md flex text-white">
+        <div className="bg-blue-900 mt-6  cursor-pointer hover:bg-blue-800 transition duration-500 ease-in-out  w-4/5 md:w-6/12 rounded-md flex text-white">
           <div className="flex items-center w-full h-full  justify-between">
             <div className="bg-blue-800 rounded-md p-2 ">
               <FaFacebookSquare className="h-6" />
@@ -63,7 +63,7 @@ const LoginComponents = () => {
             <div className="text-center  w-full">Signin with facebook</div>
           </div>
         </div>
-        <div className="bg-main mt-6  mb-6  hover:bg-hover transition duration-500 ease-in-out cursor-pointer w-6/12 rounded-md flex text-white">
+        <div className="bg-main mt-6  mb-6  hover:bg-hover transition duration-500 ease-in-out cursor-pointer w-4/5 md:w-6/12 rounded-md flex text-white">
           <div className="flex items-center w-full h-full  justify-between">
             <div className="bg-hover py-2 px-2  rounded-md h-full">
               <FaTwitterSquare className="h-6" />

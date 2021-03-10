@@ -31,8 +31,8 @@ const Profile = ({ dark, setOpen }) => {
               />
             </div>
           </div>
-          <div className=" border-b grid  m-4 p-8 grid-cols-1 md:grid-cols-3 border-gray-200">
-            <div className=" flex flex-col-reverse items-center justify-center md:grid   md:grid-cols-3 col-span-2">
+          <div className=" border-b grid  m-2 md:m-4 p-4 md:p-8 grid-cols-1 md:grid-cols-3 border-gray-200">
+            <div className="  flex flex-col-reverse items-center justify-center md:grid   md:grid-cols-3 col-span-2">
               <div className="flex-col flex my-2 ml-3">
                 <div className="flex">
                   <span>
@@ -49,7 +49,9 @@ const Profile = ({ dark, setOpen }) => {
                   </span>
                   <span className="text-xs">BRD</span>
                 </div>
-                <span className="text-gray-500 w-5/6 ">2 june 2021</span>
+                <span className="text-gray-500 w-full md:w-5/6 ">
+                  2 june 2021
+                </span>
               </div>
               <div className="flex-col flex ">
                 <div className="flex ">
@@ -66,7 +68,9 @@ const Profile = ({ dark, setOpen }) => {
                   </span>
                   <span className="text-xs">Contact</span>
                 </div>
-                <span className="text-gray-500 w-5/6 ">+23255-5435</span>
+                <span className="text-gray-500 w-full md:w-5/6 ">
+                  +23255-5435
+                </span>
               </div>{" "}
               <div className="flex-col flex my-2">
                 <div className="flex">
@@ -75,7 +79,9 @@ const Profile = ({ dark, setOpen }) => {
                   </span>
                   <span className="text-xs">Location</span>
                 </div>
-                <span className=" text-gray-500 w-5/6  ">Huye Rwanda</span>
+                <span className=" text-gray-500  w-full md:w-5/6  ">
+                  Huye Rwanda
+                </span>
               </div>
             </div>
           </div>
