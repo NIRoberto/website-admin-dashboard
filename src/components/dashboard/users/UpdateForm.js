@@ -11,7 +11,7 @@ const UpdateForm = ({ dark, setOpen }) => {
     >
       <div className="flex justify-between">
         <div>
-          <h2 className="font-bold text-2xl"> Profile</h2>
+          <h2 className="font-bold text-xl md:text-2xl"> Profile</h2>
           <span className="text-xs">Business admin panel</span>
         </div>
         <div className="flex mt-6">
@@ -19,7 +19,7 @@ const UpdateForm = ({ dark, setOpen }) => {
             <AiFillHome className="text-main mr-1 mt-1 " />
           </span>
           /<span className="mx-1">User</span>/
-          <span className="mx-1">Update profile</span>
+          <span className="mx-1  text-sm md:text-lg">Update profile</span>
         </div>
       </div>
 
@@ -32,10 +32,10 @@ const UpdateForm = ({ dark, setOpen }) => {
           <h2 className="mx-5"> Update profile</h2>
         </div>
 
-        <form className="w-full border-t border-gray-200 pb-4">
+        <form className="w-full  pb-4">
           <div className="grid  grid-cols-1 md:grid-cols-2 w-full justify-items-center">
             <div className="flex-col md:my-4  flex w-10/12">
-              <label htmlFor="FirstName" className="my-2 text-main">
+              <label htmlFor="FirstName" className="my-2 text-gray-400">
                 First name
               </label>
               <input
@@ -43,11 +43,11 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="FirstName"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray focus:outline-none border-gray-400`}
               />
             </div>
             <div className="flex-col my-4 w-10/12    flex">
-              <label htmlFor="LastName" className="my-2 text-main">
+              <label htmlFor="LastName" className="my-2 text-gray-400">
                 {" "}
                 Last name
               </label>
@@ -56,13 +56,13 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="LastName"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
               />
             </div>
           </div>
           <div className="grid  grid-cols-1 md:grid-cols-2 w-full justify-items-center">
             <div className="flex-col md:my-2  flex w-10/12">
-              <label htmlFor="Email" className="my-2 text-main">
+              <label htmlFor="Email" className="my-2 text-gray-400">
                 Email
               </label>
               <input
@@ -70,11 +70,11 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="Email"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
               />
             </div>
             <div className="flex-col my-2 w-10/12    flex">
-              <label htmlFor="Phone" className="my-2 text-main">
+              <label htmlFor="Phone" className="my-2 text-gray-400">
                 {" "}
                 Phone
               </label>
@@ -83,13 +83,13 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="Phone"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
               />
             </div>
           </div>
           <div className="grid  grid-cols-1 md:grid-cols-2 w-full justify-items-center">
             <div className="flex-col md:my-2  flex w-10/12">
-              <label htmlFor="DateOfBirth" className="my-2 text-main">
+              <label htmlFor="DateOfBirth" className="my-2 text-gray-400">
                 Date of birth
               </label>
               <input
@@ -97,11 +97,11 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="DateOfBirth"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
               />
             </div>
             <div className="flex-col my-2 w-10/12    flex">
-              <label htmlFor="Location" className="my-2 text-main">
+              <label htmlFor="Location" className="my-2 text-gray-400">
                 {" "}
                 Location
               </label>
@@ -110,13 +110,13 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="Location"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
               />
             </div>
           </div>{" "}
           <div className="grid  grid-cols-1 md:grid-cols-2 w-full justify-items-center">
             <div className="flex-col md:my-2  flex w-10/12">
-              <label htmlFor="Facebook" className="my-2 text-main">
+              <label htmlFor="Facebook" className="my-2 text-gray-400">
                 Facebook link
               </label>
               <input
@@ -124,11 +124,11 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="Facebook"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
               />
             </div>
             <div className="flex-col my-2 w-10/12    flex">
-              <label htmlFor="Twitter" className="my-2 text-main">
+              <label htmlFor="Twitter" className="my-2 text-gray-400">
                 {" "}
                 Twitter link
               </label>
@@ -137,13 +137,13 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="Twitter"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
               />
             </div>
           </div>
           <div className="grid  mb-2  grid-cols-1 w-full justify-items-center">
             <div className="flex-col    flex w-10/12 md:w-11/12">
-              <label htmlFor="Git" className="my-2 text-main">
+              <label htmlFor="Git" className="my-2 text-gray-400">
                 GitHub Link
               </label>
               <input
@@ -151,32 +151,34 @@ const UpdateForm = ({ dark, setOpen }) => {
                 name="Git"
                 className={`${
                   dark ? "bg-hoverDark" : ""
-                } border px-2 py-1 rounded-md focus:border-main focus:outline-none border-main`}
+                } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
               />
             </div>
-            <div className="flex-col w md:w-11/12    flex">
-              <label htmlFor="Phone" className="my-2 text-main">
+            <div className="flex-col  w-10/12 md:w-11/12    flex">
+              <label htmlFor="Bio" className="my-2  text-gray-400">
                 {" "}
                 Bio
               </label>
               <textarea
-                name="bio"
+                name="Bio"
                 id="bio"
                 className={`${
-                  dark ? "bg-hoverDark border-main border" : ""
-                }border     focus:border-main focus:outline-none  border-main rounded-md p-2`}
+                  dark ? "bg-hoverDark  " : ""
+                }border     focus:border-gray-400 focus:outline-none  border-gray-400 rounded-md p-2`}
               ></textarea>
             </div>
           </div>
-          <div className="flex justify-between items-center  w-6/12 md:w-11/12 ml-10 my-10">
-            <div>
-              <input type="file" name="image" id="" />
-            </div>
-            <div>
-              <button className="px-8 py-1 bg-main rounded-md text-white hover:bg-hover">
-                Update
-              </button>
-            </div>
+          <div className="flex  flex-col   w-5/12 md:w-11/12 ml-7  md:ml-10 ">
+            <label htmlFor="Phone" className="my-2 text-gray-400">
+              {" "}
+              Image
+            </label>
+            <input type="file" name="image" id="" />
+          </div>
+          <div className="flex items-center  w-5/12 md:w-11/12 ml-7 md:ml-10 my-10">
+            <button className="px-8 py-1 bg-main rounded-md text-white hover:bg-hover">
+              Update
+            </button>
           </div>
         </form>
       </div>

@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e0fd6410-6ede-47c2-8a5b-0764165e5664/deploy-status)](https://app.netlify.com/sites/admin-dashboard-template/deploys)
+
 # Admin dashboard
 
 # Dependencies ⚙︎
@@ -30,7 +32,6 @@ To build the application run the command below
 To start the application in production mode run the command below
 
 > `npm start`
-
 
 # Authors
 

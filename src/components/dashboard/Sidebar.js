@@ -18,20 +18,19 @@ import { SiUikit, SiWebauthn } from "react-icons/si";
 import logo from "assets/img/Eo_circle_light-blue_white_letter-r.svg";
 import { MdEmail, MdWidgets } from "react-icons/md";
 import "./scroll.css";
-import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Sidebar = ({ dark, Open }) => {
   const [sidebar, setSidebar] = useState(false);
-  const [link2, setLink2] = useState(false);
-  const [form, setForm] = useState(false);
+  // const [link2, setLink2] = useState(false);
+  // const [form, setForm] = useState(false);
   const [pages, setPages] = useState(false);
   const [Email, setEmail] = useState(false);
   const [Kit, setKit] = useState(false);
   const [user, setUser] = useState(false);
   const [blog, setBlog] = useState(false);
   const [profolios, setProfolios] = useState(false);
-  const [Gallery, setGallery] = useState(false);
+  // const [Gallery, setGallery] = useState(false);
   const [From, setFrom] = useState(false);
   const [Button, setButton] = useState(false);
   const [Tables, setTables] = useState(false);

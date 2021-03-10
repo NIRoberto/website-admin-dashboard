@@ -32,19 +32,19 @@ const AllUsers = ({ dark, setOpen }) => {
       </div>
 
       <div className="flex items-center text-sm my-5 justify-center">
-        <div className="rounded-md bg-white mr-2 py-1 px-2 shadow-md hover:bg-hover transition duration-200 ease-in-out hover:text-white text-black">
+        <div className="rounded-md bg-white mr-2 py-1.5 px-3 shadow-md hover:bg-hover transition duration-200 ease-in-out hover:text-white text-black">
           <a href="#1">Next</a>
         </div>
-        <div className="bg-main rounded-md mr-2 py-1 px-2 shadow-md text-white hover:bg-hover transition duration-200 ease-in-out  ">
+        <div className="bg-main rounded-md mr-2 py-1.5 px-3 shadow-md text-white hover:bg-hover transition duration-200 ease-in-out  ">
           <a href="#1">1</a>
         </div>{" "}
-        <div className="bg-white rounded-md mr-2 py-1 px-2 shadow-md hover:bg-hover transition duration-200 ease-in-out hover:text-white text-black">
+        <div className="bg-white rounded-md mr-2 py-1.5 px-3 shadow-md hover:bg-hover transition duration-200 ease-in-out hover:text-white text-black">
           <a href="#1">2</a>
         </div>{" "}
-        <div className="bg-white rounded-md mr-2 py-1 px-2 shadow-md hover:bg-hover transition duration-200 ease-in-out hover:text-white text-black">
+        <div className="bg-white rounded-md mr-2 py-1.5 px-3 shadow-md hover:bg-hover transition duration-200 ease-in-out hover:text-white text-black">
           <a href="#1">3</a>
         </div>
-        <div className="bg-white rounded-md mr-2 py-1 px-2 shadow-md hover:bg-hover transition duration-200 ease-in-out hover:text-white text-black">
+        <div className="bg-white rounded-md mr-2 py-1.5 px-3 shadow-md hover:bg-hover transition duration-200 ease-in-out hover:text-white text-black">
           <a href="#1">Prev</a>
         </div>
       </div>

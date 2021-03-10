@@ -1,7 +1,9 @@
 input:focus {
   border-width: 2px;
+  border-color: #269df8;
 }
 
 textarea:focus {
   border-width: 2px;
+  border-color: #269df8;
 }
