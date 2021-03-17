@@ -1,15 +1,12 @@
 import Footer from "components/dashboard/Footer";
 import Navbar from "components/dashboard/Navbar";
 import Sidebar from "components/dashboard/Sidebar";
-import AllUsers from "components/dashboard/users/AllUsers";
+import Widget from "components/dashboard/Widget";
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
 import { useHistory } from "react-router";
-import { logout } from "redux/action/userAction";
-import { profileActionCreator } from "redux/action/userProfile";
 import Loader from "skeletons/Loader/Loader";
 
-const AllProfile = ({ userData, getAllProfile, LOGOUT }) => {
+const Widgets = () => {
   const [Dark, setDark] = useState(false);
   const [Open, setOpen] = useState(false);
   const [loader, setLoader] = useState(true);
@@ -19,17 +16,12 @@ const AllProfile = ({ userData, getAllProfile, LOGOUT }) => {
       setLoader(false);
     }, 4000);
   }, []);
-
-  useEffect(() => {
-    getAllProfile();
-  }, []);
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
       history.push("/login");
     }
   }, []);
-
   return (
     <>
       <div
@@ -44,31 +36,13 @@ const AllProfile = ({ userData, getAllProfile, LOGOUT }) => {
           loader ? "hidden" : "grid"
         }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
       >
-        <Navbar
-          logout={LOGOUT}
-          dark={Dark}
-          setDark={setDark}
-          Open={Open}
-          setOpen={setOpen}
-        />
+        <Navbar dark={Dark} setDark={setDark} Open={Open} setOpen={setOpen} />
         <Sidebar dark={Dark} Open={Open} />
-        <AllUsers dark={Dark} Open={Open} users={userData} setOpen={setOpen} />
+        <Widget dark={Dark} Open={Open} setOpen={setOpen} />
         <Footer dark={Dark} />
       </div>
     </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    userData: state.profile,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllProfile: () => dispatch(profileActionCreator()),
-    LOGOUT: () => dispatch(logout()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AllProfile);
+export default Widgets;
