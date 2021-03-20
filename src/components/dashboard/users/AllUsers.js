@@ -1,9 +1,11 @@
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
-import { usersDATA } from "components/data/users";
+import { usersDATA } from "../../data/users";
 import UserCard from "./UserCard";
 
-const AllUsers = ({ dark, setOpen }) => {
+const AllUsers = ({ dark, setOpen, users }) => {
+  // const usersDATA = users.userData;
+  // console.log(usersDATA);
   return (
     <div
       className={`${
@@ -26,7 +28,6 @@ const AllUsers = ({ dark, setOpen }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {usersDATA.map((user) => {
-          console.log(user);
           return <UserCard {...user} dark={dark} key={user.id} />;
         })}
       </div>

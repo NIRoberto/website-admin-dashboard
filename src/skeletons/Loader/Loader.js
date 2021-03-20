@@ -1,8 +1,7 @@
 import React from "react";
 import ImgLoader from "assets/spinner/294.svg";
 
-const Loader = (props) => {
-  console.log(props);
+const Loader = () => {
   return (
     <div className="flex items-center justify-center bg-white">
       <img src={ImgLoader} alt="Loader" />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import Loader from "skeletons/Loader/Loader";
 import Content from "../components/dashboard/Content";
 import Footer from "../components/dashboard/Footer";
@@ -14,6 +15,12 @@ const Dashboard = () => {
     setTimeout(() => {
       setLoader(false);
     }, 4000);
+  }, []);
+  const history = useHistory();
+  useEffect(() => {
+    if (!localStorage.token) {
+      history.push("/login");
+    }
   }, []);
   return (
     <>

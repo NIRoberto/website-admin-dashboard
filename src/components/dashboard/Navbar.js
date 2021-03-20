@@ -5,20 +5,35 @@ import { IoMoonOutline, IoSettingsOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
 import { FcMoneyTransfer } from "react-icons/fc";
 import { BsBell } from "react-icons/bs";
-import profile from "assets/img/pexels-photo-220453.jpeg";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import prof from "assets/img/profileImage.jfif";
 import blank from "assets/img/profile.png";
 import { FiSun } from "react-icons/fi";
-const Navbar = ({ dark, Open, setDark, setOpen }) => {
+import { useHistory } from "react-router";
+const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
   const [notice, setNotice] = useState(false);
   const [Log, setLog] = useState(false);
   const [message, setMessage] = useState(false);
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  const { profileImage } = user.data.LoggedInAs.user;
+  const history = useHistory();
+
+  const Logout = () => {
+    logout();
+
+    setTimeout(() => {
+      history.push("/login");
+    }, 3000);
+  };
   return (
     <div
       className={`${
         dark ? "bg-NavDark text-white" : "bg-white"
       } col-start-1  lg:col-start-3 col-end-13  row-start-1 row-end-2   shadow-2xl`}
     >
+      <ToastContainer />
       <div className="flex justify-between items-center  ">
         <div
           className="flex items-center pt-1
@@ -287,13 +302,13 @@ const Navbar = ({ dark, Open, setDark, setOpen }) => {
           <div>
             <img
               className="w-9 h-9 rounded-full  object-cover cursor-pointer relative "
-              src={profile || blank}
+              src={profileImage || blank}
               alt="profile"
               onClick={() => setLog(!Log)}
             />
 
             <div className={`${Log ? "block" : "hidden "}`}>
-              <div className="bg-white rounded-md text-gray-700 w-36 mt-2 shadow-md absolute  right-5">
+              <div className="bg-white rounded-md text-gray-700 w-36 mt-2 shadow-md absolute z-20  right-5">
                 <div className="flex p-2 border-b items-center  justify-center border-gray-200">
                   <div className=" mr-1 text-sm">
                     <IoSettingsOutline />
@@ -311,15 +326,15 @@ const Navbar = ({ dark, Open, setDark, setOpen }) => {
                   </div>
                   <div className="text-xs">Profile</div>
                 </a>{" "}
-                <a
-                  href="/"
-                  className="flex p-2 border-b items-center  justify-center text-red-500 border-gray-200"
+                <div
+                  onClick={Logout}
+                  className="flex p-2 border-b items-center  cursor-pointer justify-center text-red-500 border-gray-200"
                 >
                   <div className=" mr-1 text-sm">
                     <IoIosLogOut />
                   </div>
                   <div className="text-xs">Logout</div>
-                </a>
+                </div>
               </div>
             </div>
           </div>

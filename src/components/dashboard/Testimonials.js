@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { client } from "components/data/client";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Testimonials = () => {
   const [Index, setIndex] = useState(0);
@@ -34,6 +36,7 @@ const Testimonials = () => {
       <div className="text-2xl font-bold p-4 border-b border-gray-300">
         <h3>Client review</h3>
       </div>
+      <ToastContainer />
       <div className="grid grid-cols-1 md:grid-cols-4  p-2 md:p-4">
         <div className="col-span-1 md:col-span-3">
           <p className="text-sm pt-2 px-2">{review}</p>

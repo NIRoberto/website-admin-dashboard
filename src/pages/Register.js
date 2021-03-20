@@ -1,8 +1,10 @@
 import RegisterComponents from "components/Auth/RegisterComponents";
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { userSignup } from "redux/action/userAction";
 import Loader from "skeletons/Loader/Loader";
 
-const Register = () => {
+const Register = ({ userInfo }) => {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
@@ -26,4 +28,10 @@ const Register = () => {
   );
 };
 
-export default Register;
+const mapStateToProps = (state) => {
+  return {
+    userInfo: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(Register);
