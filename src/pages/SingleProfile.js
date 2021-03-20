@@ -2,7 +2,9 @@ import Footer from "components/dashboard/Footer";
 import Navbar from "components/dashboard/Navbar";
 import Sidebar from "components/dashboard/Sidebar";
 import Profile from "components/dashboard/users/Profile";
+import { connect } from "formik";
 import React, { useEffect, useState } from "react";
+import { logout } from "redux/action/userAction";
 import Loader from "skeletons/Loader/Loader";
 
 const SingleProfile = () => {
@@ -37,5 +39,10 @@ const SingleProfile = () => {
     </>
   );
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LOGOUT: () => dispatch(logout()),
+  };
+};
 
-export default SingleProfile;
+export default connect(mapDispatchToProps)(SingleProfile);

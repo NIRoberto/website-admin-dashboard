@@ -3,9 +3,11 @@ import Navbar from "components/dashboard/Navbar";
 import Sidebar from "components/dashboard/Sidebar";
 import UpdateForm from "components/dashboard/users/UpdateForm";
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { logout } from "redux/action/userAction";
 import Loader from "skeletons/Loader/Loader";
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ LOGOUT }) => {
   const [Dark, setDark] = useState(false);
   const [Open, setOpen] = useState(false);
   const [loader, setLoader] = useState(true);
@@ -29,7 +31,13 @@ const UpdateProfile = () => {
           loader ? "hidden" : "grid"
         }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
       >
-        <Navbar dark={Dark} setDark={setDark} Open={Open} setOpen={setOpen} />
+        <Navbar
+          logout={LOGOUT}
+          dark={Dark}
+          setDark={setDark}
+          Open={Open}
+          setOpen={setOpen}
+        />
         <Sidebar dark={Dark} Open={Open} />
 
         <UpdateForm dark={Dark} Open={Open} setOpen={setOpen} />
@@ -38,5 +46,9 @@ const UpdateProfile = () => {
     </>
   );
 };
-
-export default UpdateProfile;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LOGOUT: () => dispatch(logout()),
+  };
+};
+export default connect(mapDispatchToProps)(UpdateProfile);

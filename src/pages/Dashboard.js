@@ -1,11 +1,14 @@
+import { connect } from "formik";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
+import { logout } from "redux/action/userAction";
 import Loader from "skeletons/Loader/Loader";
 import Content from "../components/dashboard/Content";
 import Footer from "../components/dashboard/Footer";
 import Navbar from "../components/dashboard/Navbar";
 import Sidebar from "../components/dashboard/Sidebar";
 
-const Dashboard = () => {
+const Dashboard = ({ LOGOUT }) => {
   const [Dark, setDark] = useState(false);
   const [Open, setOpen] = useState(false);
   const [loader, setLoader] = useState(true);
@@ -14,6 +17,12 @@ const Dashboard = () => {
     setTimeout(() => {
       setLoader(false);
     }, 4000);
+  }, []);
+  const history = useHistory();
+  useEffect(() => {
+    if (!localStorage.token) {
+      history.push("/login");
+    }
   }, []);
   return (
     <>
@@ -29,7 +38,13 @@ const Dashboard = () => {
           loader ? "hidden" : "grid"
         }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
       >
-        <Navbar dark={Dark} setDark={setDark} Open={Open} setOpen={setOpen} />
+        <Navbar
+          logout={LOGOUT}
+          dark={Dark}
+          setDark={setDark}
+          Open={Open}
+          setOpen={setOpen}
+        />
         <Sidebar dark={Dark} Open={Open} />
         <Content dark={Dark} Open={Open} setOpen={setOpen} />
         <Footer dark={Dark} />
@@ -37,5 +52,15 @@ const Dashboard = () => {
     </>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    userData: state.profile,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LOGOUT: () => dispatch(logout()),
+  };
+};
 
-export default Dashboard;
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

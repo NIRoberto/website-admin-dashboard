@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoLogOutOutline } from "react-icons/io5";
 import {
   AiOutlineDashboard,
@@ -12,13 +12,13 @@ import { FiUser } from "react-icons/fi";
 import { BiKey } from "react-icons/bi";
 import { BsChevronRight, BsEnvelope, BsFilePost } from "react-icons/bs";
 import "react-tippy/dist/tippy.css";
+
 import { Tooltip } from "react-tippy";
-import profile from "assets/img/pexels-photo-220453.jpeg";
 import { SiUikit, SiWebauthn } from "react-icons/si";
 import logo from "assets/img/Eo_circle_light-blue_white_letter-r.svg";
 import { MdEmail, MdWidgets } from "react-icons/md";
 import "./scroll.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Sidebar = ({ dark, Open }) => {
   const [sidebar, setSidebar] = useState(false);
@@ -34,6 +34,21 @@ const Sidebar = ({ dark, Open }) => {
   const [From, setFrom] = useState(false);
   const [Button, setButton] = useState(false);
   const [Tables, setTables] = useState(false);
+  const user1 = JSON.parse(localStorage.getItem("userInfo"));
+  const {
+    firstName,
+    lastName,
+    profileImage,
+    role,
+  } = user1.data.LoggedInAs.user;
+
+  const history = useHistory();
+  useEffect(() => {
+    if (!localStorage.token) {
+      history.push("/login");
+    }
+  }, []);
+
   return (
     <div
       className={`${dark ? "bg-NavDark" : "bg-main"} ${
@@ -59,14 +74,14 @@ const Sidebar = ({ dark, Open }) => {
         <div className="flex-col flex  items-center justify-center border-b border-line p-4">
           <div>
             <img
-              src={profile}
+              src={profileImage}
               alt="profile"
               className="w-16 h-16 object-cover rounded-full"
             />
           </div>
           <div className="w-full flex justify-center flex-col items-center ">
-            <span className="text-base ">Robert Dev</span>
-            <span className="text-xs">Admin</span>
+            <span className="text-base ">{`${firstName} ${lastName}`}</span>
+            <span className="text-xs">{role}</span>
             <ul className="flex justify-around  mt-3 w-full ">
               <li>
                 <a href="#m" className="text-sm">
@@ -169,12 +184,12 @@ const Sidebar = ({ dark, Open }) => {
                     href="#link"
                     className="flex justify-between hover:bg-hover p-2"
                   >
-                    <div className="flex">
+                    <Link to="widget" className="flex">
                       <span className="mr-2">
                         <MdWidgets className="text-base mt-0.5 font-bold" />
                       </span>
                       <span>Widgets</span>
-                    </div>
+                    </Link>
                   </a>
                 </li>
               </ul>
@@ -620,30 +635,33 @@ const Sidebar = ({ dark, Open }) => {
                   </a>
                   <div className={`${!blog ? "hidden " : "block"}`}>
                     <div className="flex justify-between my-2">
-                      <a href="laudantium" className="flex text-gray-200">
+                      <Link to="/blogs" className="flex text-gray-200">
                         <div>
                           <BiKey className="mt-0.5 mx-3" />
                         </div>
-                        <span className="text-sm">Users profile</span>
-                      </a>
+                        <span className="text-sm">All blog</span>
+                      </Link>
                       <div />
                     </div>
                     <div className="flex justify-between my-2">
-                      <a href="laudantium" className="flex text-gray-200">
+                      <Link to="/blogs/:id" className="flex text-gray-200">
                         <div>
                           <BiKey className="mt-0.5 mx-3 text-gray-200" />
                         </div>
-                        <span className="text-sm">Single profile</span>
-                      </a>
+                        <span className="text-sm">Single blog</span>
+                      </Link>
                       <div />
                     </div>
                     <div className="flex justify-between my-2">
-                      <a href="laudantium" className="flex text-gray-200">
+                      <Link
+                        to="/blogs/Create/:id"
+                        className="flex text-gray-200"
+                      >
                         <div>
                           <BiKey className="mt-0.5 mx-3" />
                         </div>
-                        <span className="text-sm">Edit Profile </span>
-                      </a>
+                        <span className="text-sm">Create Blog</span>
+                      </Link>
                       <div />
                     </div>
                   </div>

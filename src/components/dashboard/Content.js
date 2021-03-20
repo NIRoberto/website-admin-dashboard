@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CountUp from "react-countup";
 import {
   AiFillHome,
@@ -13,8 +13,16 @@ import { BsFilePost } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import logo from "assets/img/Eo_circle_light-blue_white_letter-r.svg";
 import Testimonials from "./Testimonials";
+import { useHistory } from "react-router";
 
 const Content = ({ dark, setOpen }) => {
+  const history = useHistory();
+  useEffect(() => {
+    if (!localStorage.token) {
+      history.push("/login");
+    }
+  }, []);
+
   return (
     <div
       className={`${
