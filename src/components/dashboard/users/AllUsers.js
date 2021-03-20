@@ -1,11 +1,11 @@
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
-import { usersDATA } from "../../data/users";
+// import { usersDATA } from "../../data/users";
 import UserCard from "./UserCard";
 
 const AllUsers = ({ dark, setOpen, users }) => {
-  // const usersDATA = users.userData;
-  // console.log(usersDATA);
+  const usersDATA = users.userData;
+  console.log(usersDATA);
   return (
     <div
       className={`${
