@@ -1,19 +1,23 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
-import { toast, ToastContainer } from "react-toastify";
-import "./input.css";
-import logo from "assets/img/Eo_circle_light-blue_white_letter-r.svg";
-import validationSchema from "./validation/loginValidate";
-import axios from "axios";
-import { loginFailed, loginSuccess } from "redux/action/userAction";
-import { useDispatch } from "react-redux";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import {
+  Formik, Field, Form, ErrorMessage,
+} from 'formik';
+import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
+import { toast, ToastContainer } from 'react-toastify';
+import './input.css';
+import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
+import axios from 'axios';
+import { loginFailed, loginSuccess } from 'redux/action/userAction';
+import { useDispatch } from 'react-redux';
+import setAuthorizationToken from 'utils/setAuth';
+import validationSchema from './validation/loginValidate';
 
 const LoginComponents = () => {
   const initialValues = {
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   };
 
   const history = useHistory();
@@ -26,25 +30,25 @@ const LoginComponents = () => {
     };
 
     axios
-      .post(`https://dashboard-r-api.herokuapp.com/api/v1/users/signin`, user)
+      .post('https://dashboard-r-api.herokuapp.com/api/v1/users/signin', user)
       .then((data) => {
         dispatch(loginSuccess(data));
 
-        localStorage.setItem("token", data.data.token);
-        localStorage.setItem("userInfo", JSON.stringify(data));
-        toast.success("User login successfully");
+        localStorage.setItem('token', data.data.token);
+        setAuthorizationToken(data.data.token);
+        localStorage.setItem('userInfo', JSON.stringify(data));
+        toast.success('User login successfully');
 
         setTimeout(() => {
-          history.push("/user/profile");
+          history.push('/user/profile');
           setTimeout(() => {
             toast.success(`Welcome ${data.data.LoggedInAs.user.firstName}`);
           }, 8000);
         }, 3000);
       })
       .catch((error) => {
-        dispatch({ type: "SIGNUP_FAILED ", payload: error });
+        dispatch({ type: 'SIGNUP_FAILED ', payload: error });
         toast.error(error.message);
-        console.log(error.message);
         dispatch(loginFailed(error.message));
       });
   };
@@ -101,14 +105,18 @@ const LoginComponents = () => {
             </div>
             <div className="flex justify-between mt-4 w-4/5 md:w-6/12">
               <div>
-                Signup{" "}
+                Signup
+                {' '}
                 <Link to="/register" className="text-main">
-                  {" "}
+                  {' '}
                   here
                 </Link>
               </div>
               <div className="bg-main text-white py-2 hover:bg-hover transition duration-500 ease-in-out px-8 rounded-md">
-                <button className="focus:outline-none border-none outline-none">
+                <button
+                  type="submit"
+                  className="focus:outline-none border-none outline-none"
+                >
                   Signin
                 </button>
               </div>

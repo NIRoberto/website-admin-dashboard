@@ -1,4 +1,4 @@
-import userInitialState from "./initialState";
+import userInitialState from './initialState';
 import {
   SIGNUP_SUCCESS,
   SIGNUP_FAILED,
@@ -7,7 +7,7 @@ import {
   SIGNUP_REQUEST,
   LOGOUT_SUCCESS,
   LOGOUT_FAILED,
-} from "../action/type";
+} from '../action/type';
 
 const userReducer = (state = userInitialState, action) => {
   const { type, payload } = action;

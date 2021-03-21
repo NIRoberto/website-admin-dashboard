@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import LoginComponents from "components/Auth/LoginComponents";
-import Loader from "skeletons/Loader/Loader";
+import React, { useEffect, useState } from 'react';
+import LoginComponents from 'components/Auth/LoginComponents';
+import Loader from 'skeletons/Loader/Loader';
 
 const Login = () => {
   const [loader, setLoader] = useState(true);
@@ -14,14 +14,14 @@ const Login = () => {
     <>
       <div
         className={`${
-          loader ? "flex items-center justify-center h-screen" : "hidden"
+          loader ? 'flex items-center justify-center h-screen' : 'hidden'
         }`}
       >
         <Loader />
       </div>
       <div
         className={`${
-          loader ? "hidden" : " block"
+          loader ? 'hidden' : ' block'
         } w-screen h-screen bg-surface`}
       >
         <LoginComponents />
