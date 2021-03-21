@@ -1,22 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { FaBars, FaRegEnvelope, FaRegUser, FaSearch } from "react-icons/fa";
-import { MdDateRange } from "react-icons/md";
-import { IoMoonOutline, IoSettingsOutline } from "react-icons/io5";
-import { IoIosLogOut } from "react-icons/io";
-import { FcMoneyTransfer } from "react-icons/fc";
-import { BsBell } from "react-icons/bs";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useEffect, useState } from 'react';
+import {
+  FaBars, FaRegEnvelope, FaRegUser, FaSearch,
+} from 'react-icons/fa';
+import { MdDateRange } from 'react-icons/md';
+import { IoMoonOutline, IoSettingsOutline } from 'react-icons/io5';
+import { IoIosLogOut } from 'react-icons/io';
+import { FcMoneyTransfer } from 'react-icons/fc';
+import { BsBell } from 'react-icons/bs';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import prof from "assets/img/profileImage.jfif";
-import blank from "assets/img/profile.png";
-import { FiSun } from "react-icons/fi";
-import { useHistory } from "react-router";
-const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
+import prof from 'assets/img/profileImage.jfif';
+import blank from 'assets/img/profile.png';
+import { FiSun } from 'react-icons/fi';
+import { useHistory } from 'react-router';
+
+const Navbar = ({
+  dark, Open, setDark, setOpen, logout,
+}) => {
   const [notice, setNotice] = useState(false);
   const [Log, setLog] = useState(false);
   const [message, setMessage] = useState(false);
-  const user = JSON.parse(localStorage.getItem("userInfo"));
+  const user = JSON.parse(localStorage.getItem('userInfo'));
   const { profileImage } = user.data.LoggedInAs.user;
   const history = useHistory();
 
@@ -24,19 +33,19 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
     logout();
 
     setTimeout(() => {
-      history.push("/login");
+      history.push('/login');
     }, 3000);
   };
   useEffect(() => {
     if (!localStorage.token) {
-      history.push("/login");
+      history.push('/login');
     }
   }, []);
 
   return (
     <div
       className={`${
-        dark ? "bg-NavDark text-white" : "bg-white"
+        dark ? 'bg-NavDark text-white' : 'bg-white'
       } col-start-1  lg:col-start-3 col-end-13  row-start-1 row-end-2   shadow-2xl`}
     >
       <ToastContainer />
@@ -82,16 +91,16 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
               onClick={() => setNotice(!notice)}
             />
             <span className="bg-main animate-pulse transition duration-1000 ease-in-out absolute z-0 text-xs text-white  right-2 px-1 rounded-full -top-2">
-              {" "}
+              {' '}
               2
             </span>
 
-            <div className={`${notice ? "block" : "hidden"}`}>
+            <div className={`${notice ? 'block' : 'hidden'}`}>
               <div
                 className={`${
                   dark
-                    ? "bg-profileDark text-white "
-                    : " bg-white text-gray-800"
+                    ? 'bg-profileDark text-white '
+                    : ' bg-white text-gray-800'
                 } absolute top-10  right-3 shadow-md  rounded-md  z-20 w-64 md:w-80`}
               >
                 <div className="header flex text-sm justify-between border-b border-gray-200 p-2 ">
@@ -103,7 +112,7 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
                 <div className="max-h-64 overflow-auto">
                   <div
                     className={`${
-                      dark ? "hover:bg-gray-900" : "hover:bg-gray-100"
+                      dark ? 'hover:bg-gray-900' : 'hover:bg-gray-100'
                     } flex items-center justify-around p-2 border-b  cursor-pointer  border-gray-200 `}
                   >
                     <div className="icon bg-yellow-400 cursor-pointer rounded-md  p-1 md:p-3">
@@ -112,19 +121,22 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
 
                     <div className="text">
                       <h3 className=" text-sm">
-                        {" "}
-                        Hey Rob how was the weekend{" "}
+                        {' '}
+                        Hey Rob how was the weekend
+                        {' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
-                        {" "}
-                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
+                        {' '}
+                        <MdDateRange className="text-sm mr-1 " />
+                        {' '}
+                        Feb 2 2020
                       </span>
                     </div>
                   </div>
                   <div
                     className={`${
-                      dark ? "hover:bg-gray-900" : "hover:bg-gray-100"
+                      dark ? 'hover:bg-gray-900' : 'hover:bg-gray-100'
                     } flex items-center justify-around p-2 border-b  cursor-pointer  border-gray-200 `}
                   >
                     <div className="icon bg-yellow-400 cursor-pointer rounded-md  p-1 md:p-3">
@@ -133,13 +145,16 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
 
                     <div className="text">
                       <h3 className=" text-sm">
-                        {" "}
-                        Hey Rob how was the weekend{" "}
+                        {' '}
+                        Hey Rob how was the weekend
+                        {' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
-                        {" "}
-                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
+                        {' '}
+                        <MdDateRange className="text-sm mr-1 " />
+                        {' '}
+                        Feb 2 2020
                       </span>
                     </div>
                   </div>
@@ -164,13 +179,13 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
               }}
             />
             <span className="bg-main animate-ping transition duration-1000 ease-in-out absolute z-0 text-xs text-white  right-2 px-1 rounded-full -top-2">
-              {" "}
+              {' '}
               4
             </span>
-            <div className={`${message ? "block" : "hidden"}`}>
+            <div className={`${message ? 'block' : 'hidden'}`}>
               <div
                 className={`${
-                  dark ? "bg-profileDark text-white" : " bg-white text-gray-800"
+                  dark ? 'bg-profileDark text-white' : ' bg-white text-gray-800'
                 } absolute top-8 right-3 shadow-md  rounded-md  z-20 w-60 md:w-80`}
               >
                 <div className="header flex text-sm justify-between border-b border-gray-200 p-2 ">
@@ -182,11 +197,11 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
                 <div className="max-h-64  overflow-auto">
                   <div
                     className={`${
-                      dark ? "hover:bg-gray-900" : "hover:bg-gray-100"
+                      dark ? 'hover:bg-gray-900' : 'hover:bg-gray-100'
                     } flex items-center justify-around p-2 border-b  cursor-pointer border-gray-200 `}
                   >
                     <div
-                      className="icon w-16 
+                      className="icon w-16
                       h-16 cursor-pointer  p-3"
                     >
                       <img
@@ -198,23 +213,26 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
 
                     <div className="text">
                       <h3 className=" text-sm">
-                        {" "}
-                        Hey Rob how was the weekend{" "}
+                        {' '}
+                        Hey Rob how was the weekend
+                        {' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
-                        {" "}
-                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
+                        {' '}
+                        <MdDateRange className="text-sm mr-1 " />
+                        {' '}
+                        Feb 2 2020
                       </span>
                     </div>
                   </div>
                   <div
                     className={`${
-                      dark ? "hover:bg-gray-900" : "hover:bg-gray-100"
+                      dark ? 'hover:bg-gray-900' : 'hover:bg-gray-100'
                     } flex items-center justify-around p-2 border-b  cursor-pointer border-gray-200 `}
                   >
                     <div
-                      className="icon w-16 
+                      className="icon w-16
                       h-16 cursor-pointer  p-3"
                     >
                       <img
@@ -226,23 +244,27 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
 
                     <div className="text">
                       <h3 className=" text-sm">
-                        {" "}
-                        Hey Rob how was the weekend{" "}
+                        {' '}
+                        Hey Rob how was the weekend
+                        {' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
-                        {" "}
-                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
+                        {' '}
+                        <MdDateRange className="text-sm mr-1 " />
+                        {' '}
+                        Feb 2 2020
                       </span>
                     </div>
-                  </div>{" "}
+                  </div>
+                  {' '}
                   <div
                     className={`${
-                      dark ? "hover:bg-gray-900" : "hover:bg-gray-100"
+                      dark ? 'hover:bg-gray-900' : 'hover:bg-gray-100'
                     } flex items-center justify-around p-2 border-b  cursor-pointer border-gray-200 `}
                   >
                     <div
-                      className="icon w-16 
+                      className="icon w-16
                       h-16 cursor-pointer  p-3"
                     >
                       <img
@@ -254,23 +276,27 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
 
                     <div className="text">
                       <h3 className=" text-sm">
-                        {" "}
-                        Hey Rob how was the weekend{" "}
+                        {' '}
+                        Hey Rob how was the weekend
+                        {' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
-                        {" "}
-                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
+                        {' '}
+                        <MdDateRange className="text-sm mr-1 " />
+                        {' '}
+                        Feb 2 2020
                       </span>
                     </div>
-                  </div>{" "}
+                  </div>
+                  {' '}
                   <div
                     className={`${
-                      dark ? "hover:bg-gray-900" : "hover:bg-gray-100"
+                      dark ? 'hover:bg-gray-900' : 'hover:bg-gray-100'
                     } flex items-center justify-around p-2 border-b  cursor-pointer border-gray-200 `}
                   >
                     <div
-                      className="icon w-16 
+                      className="icon w-16
                       h-16 cursor-pointer  p-3"
                     >
                       <img
@@ -282,13 +308,16 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
 
                     <div className="text">
                       <h3 className=" text-sm">
-                        {" "}
-                        Hey Rob how was the weekend{" "}
+                        {' '}
+                        Hey Rob how was the weekend
+                        {' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
-                        {" "}
-                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
+                        {' '}
+                        <MdDateRange className="text-sm mr-1 " />
+                        {' '}
+                        Feb 2 2020
                       </span>
                     </div>
                   </div>
@@ -313,7 +342,7 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
               onClick={() => setLog(!Log)}
             />
 
-            <div className={`${Log ? "block" : "hidden "}`}>
+            <div className={`${Log ? 'block' : 'hidden '}`}>
               <div className="bg-white rounded-md text-gray-700 w-36 mt-2 shadow-md absolute z-20  right-5">
                 <div className="flex p-2 border-b items-center  justify-center border-gray-200">
                   <div className=" mr-1 text-sm">
@@ -331,7 +360,8 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
                     <FaRegUser />
                   </div>
                   <div className="text-xs">Profile</div>
-                </a>{" "}
+                </a>
+                {' '}
                 <div
                   onClick={Logout}
                   className="flex p-2 border-b items-center  cursor-pointer justify-center text-red-500 border-gray-200"

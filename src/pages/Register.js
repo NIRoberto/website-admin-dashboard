@@ -1,10 +1,9 @@
-import RegisterComponents from "components/Auth/RegisterComponents";
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { userSignup } from "redux/action/userAction";
-import Loader from "skeletons/Loader/Loader";
+import RegisterComponents from 'components/Auth/RegisterComponents';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import Loader from 'skeletons/Loader/Loader';
 
-const Register = ({ userInfo }) => {
+const Register = () => {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
@@ -16,22 +15,20 @@ const Register = ({ userInfo }) => {
     <>
       <div
         className={`${
-          loader ? "flex items-center justify-center h-screen" : "hidden"
+          loader ? 'flex items-center justify-center h-screen' : 'hidden'
         }`}
       >
         <Loader />
       </div>
-      <div className={`${loader ? "hidden" : " block"} bg-surface h-screen`}>
+      <div className={`${loader ? 'hidden' : ' block'} bg-surface h-screen`}>
         <RegisterComponents />
       </div>
     </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    userInfo: state.auth,
-  };
-};
+const mapStateToProps = (state) => ({
+  userInfo: state.auth,
+});
 
 export default connect(mapStateToProps)(Register);

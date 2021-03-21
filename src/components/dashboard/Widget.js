@@ -1,23 +1,27 @@
-import React from "react";
-import { Bar, Bubble, Doughnut, Line } from "react-chartjs-2";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Widget = ({ dark, setOpen }) => {
   const data = {
-    labels: ["jan", "feb ", "mar", "apr", "may", "june", "july", "aug", "sept"],
+    labels: ['jan', 'feb ', 'mar', 'apr', 'may', 'june', 'july', 'aug', 'sept'],
     datasets: [
       {
-        label: "Income  for 2020 ($)",
+        label: 'Income  for 2020 ($)',
         data: [1, 2, 3, 4, 5, 6, 6, 4, 5],
-        borderColor: "red",
-        backgroundColor: "#269DF8",
-        pointBackgroundColor: "#d4e7f4",
+        borderColor: 'red',
+        backgroundColor: '#269DF8',
+        pointBackgroundColor: '#d4e7f4',
       },
       {
-        label: "Income for 2019 ($)",
+        label: 'Income for 2019 ($)',
         data: [2, 8, 6, 7, 8, 8, 6, 7, 3],
-        backgroundColor: "#d4e7f4",
+        backgroundColor: '#d4e7f4',
       },
     ],
   };
@@ -25,7 +29,7 @@ const Widget = ({ dark, setOpen }) => {
   const options = {
     title: {
       display: true,
-      text: "Income year  chart",
+      text: 'Income year  chart',
     },
     scales: {
       yAxes: {
@@ -38,19 +42,19 @@ const Widget = ({ dark, setOpen }) => {
     },
   };
   const data1 = {
-    labels: ["jan", "feb ", "mar", "apr", "may", "june", "july", "aug"],
+    labels: ['jan', 'feb ', 'mar', 'apr', 'may', 'june', 'july', 'aug'],
     datasets: [
       {
-        label: "Project  for 2020 ($)",
+        label: 'Project  for 2020 ($)',
         data: [8, 7, 4, 2, 8, 5, 3, 6],
-        borderColor: "",
-        backgroundColor: "#269DF8",
-        pointBackgroundColor: "#d4e7f4",
+        borderColor: '',
+        backgroundColor: '#269DF8',
+        pointBackgroundColor: '#d4e7f4',
       },
       {
-        label: "Post for 2019 ($)",
+        label: 'Post for 2019 ($)',
         data: [1, 2, 3, 4, 5, 3, 7, 8],
-        backgroundColor: "#d4e7f4",
+        backgroundColor: '#d4e7f4',
       },
     ],
   };
@@ -58,7 +62,7 @@ const Widget = ({ dark, setOpen }) => {
   const options1 = {
     title: {
       display: true,
-      text: "Project",
+      text: 'Project',
     },
     scales: {
       yAxes: {
@@ -73,7 +77,7 @@ const Widget = ({ dark, setOpen }) => {
   const data2 = {
     datasets: [
       {
-        label: "Income  for 2020 ($)",
+        label: 'Income  for 2020 ($)',
         data: [1, 2, 3, 4, 5, 6, 6, 4, 5],
       },
     ],
@@ -82,7 +86,7 @@ const Widget = ({ dark, setOpen }) => {
   const options2 = {
     title: {
       display: true,
-      text: "Social report ",
+      text: 'Social report ',
     },
     scales: {
       yAxes: {
@@ -95,12 +99,12 @@ const Widget = ({ dark, setOpen }) => {
     },
   };
   const data4 = {
-    labels: ["Facebook", "Twitter ", "IG", "LinkedIn"],
+    labels: ['Facebook', 'Twitter ', 'IG', 'LinkedIn'],
     datasets: [
       {
-        label: "Facebook  for 2020 ($)",
+        label: 'Facebook  for 2020 ($)',
         data: [4000, 3000, 2000, 1000],
-        backgroundColor: ["#3B5998", "#269DF8", "#f90909", "#3e61a8"],
+        backgroundColor: ['#3B5998', '#269DF8', '#f90909', '#3e61a8'],
       },
     ],
   };
@@ -108,7 +112,7 @@ const Widget = ({ dark, setOpen }) => {
   const options4 = {
     title: {
       display: true,
-      text: "Project",
+      text: 'Project',
     },
     scales: {
       yAxes: {
@@ -123,7 +127,7 @@ const Widget = ({ dark, setOpen }) => {
   return (
     <div
       className={`${
-        dark ? "bg-dark text-white" : "bg-surface text-gray-800"
+        dark ? 'bg-dark text-white' : 'bg-surface text-gray-800'
       } col-end-13 bg-surface col-start-1 lg:col-start-3    row-start-2  row-end-4 p-3`}
       onClick={() => setOpen(false)}
     >

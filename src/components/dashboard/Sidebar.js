@@ -1,24 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { IoLogOutOutline } from "react-icons/io5";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from 'react';
+import { IoLogOutOutline } from 'react-icons/io5';
 import {
   AiOutlineDashboard,
   AiOutlineDown,
   AiOutlineFundProjectionScreen,
   AiOutlineMessage,
   AiOutlineUser,
-} from "react-icons/ai";
-import { RiAppsFill } from "react-icons/ri";
-import { FiUser } from "react-icons/fi";
-import { BiKey } from "react-icons/bi";
-import { BsChevronRight, BsEnvelope, BsFilePost } from "react-icons/bs";
-import "react-tippy/dist/tippy.css";
+} from 'react-icons/ai';
+import { Link, useHistory } from 'react-router-dom';
 
-import { Tooltip } from "react-tippy";
-import { SiUikit, SiWebauthn } from "react-icons/si";
-import logo from "assets/img/Eo_circle_light-blue_white_letter-r.svg";
-import { MdEmail, MdWidgets } from "react-icons/md";
-import "./scroll.css";
-import { Link, useHistory } from "react-router-dom";
+import { RiAppsFill } from 'react-icons/ri';
+import { FiUser } from 'react-icons/fi';
+import { BiKey } from 'react-icons/bi';
+import { BsChevronRight, BsEnvelope, BsFilePost } from 'react-icons/bs';
+import 'react-tippy/dist/tippy.css';
+
+import { Tooltip } from 'react-tippy';
+import { MdEmail, MdWidgets } from 'react-icons/md';
+
+import { SiUikit, SiWebauthn } from 'react-icons/si';
+import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
+import './scroll.css';
 
 const Sidebar = ({ dark, Open }) => {
   const [sidebar, setSidebar] = useState(false);
@@ -34,7 +38,7 @@ const Sidebar = ({ dark, Open }) => {
   const [From, setFrom] = useState(false);
   const [Button, setButton] = useState(false);
   const [Tables, setTables] = useState(false);
-  const user1 = JSON.parse(localStorage.getItem("userInfo"));
+  const user1 = JSON.parse(localStorage.getItem('userInfo'));
   const {
     firstName,
     lastName,
@@ -45,21 +49,21 @@ const Sidebar = ({ dark, Open }) => {
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
-      history.push("/login");
+      history.push('/login');
     }
   }, []);
 
   return (
     <div
-      className={`${dark ? "bg-NavDark" : "bg-main"} ${
+      className={`${dark ? 'bg-NavDark' : 'bg-main'} ${
         Open
-          ? "w-56 lg:w-full transition duration-200 ease-in-out block"
-          : "hidden"
+          ? 'w-56 lg:w-full transition duration-200 ease-in-out block'
+          : 'hidden'
       } row-start-1 row-end-5 col-start-1 col-end-3  min-h-full-h-screen bg-main z-20 lg:block text-white`}
     >
       <div
         className={`${
-          dark ? "bg-profileDark" : "bg-logo"
+          dark ? 'bg-profileDark' : 'bg-logo'
         } flex items-center bg-logo p-1.5 border-b border-line`}
       >
         <div>
@@ -134,11 +138,11 @@ const Sidebar = ({ dark, Open }) => {
                   <div
                     href="#link"
                     className={`${
-                      sidebar ? "bg-hover" : ""
+                      sidebar ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && sidebar ? "bg-profileDark" : ""}   ${
-                      !dark && sidebar ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && sidebar ? 'bg-profileDark' : ''}   ${
+                      !dark && sidebar ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -151,7 +155,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            sidebar ? "block " : "hidden"
+                            sidebar ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setSidebar(!sidebar)}
                         />
@@ -160,14 +164,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            sidebar ? "hidden " : "block"
+                            sidebar ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setSidebar(!sidebar)}
                         />
                       </div>
                     )}
                   </div>
-                  <div className={`${!sidebar ? "hidden " : "block"}`}>
+                  <div className={`${!sidebar ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <Link to="/" className="flex text-gray-200">
                         <div>
@@ -205,10 +209,10 @@ const Sidebar = ({ dark, Open }) => {
                 <li>
                   <a
                     href="#link"
-                    className={`${Kit ? "bg-hover" : ""} flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && Kit ? "bg-profileDark" : ""}   ${
-                      !dark && Kit ? "bg-hover" : ""
+                    className={`${Kit ? 'bg-hover' : ''} flex justify-between ${
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && Kit ? 'bg-profileDark' : ''}   ${
+                      !dark && Kit ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -221,7 +225,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            Kit ? "block " : "hidden"
+                            Kit ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setKit(!Kit)}
                         />
@@ -230,14 +234,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            Kit ? "hidden " : "block"
+                            Kit ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setKit(!Kit)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!Kit ? "hidden " : "block"}`}>
+                  <div className={`${!Kit ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <a href="laudantium" className="flex text-gray-200">
                         <div>
@@ -281,11 +285,11 @@ const Sidebar = ({ dark, Open }) => {
                   <a
                     href="#link"
                     className={`${
-                      Tables ? "bg-hover" : ""
+                      Tables ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && Tables ? "bg-profileDark" : ""}   ${
-                      !dark && Tables ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && Tables ? 'bg-profileDark' : ''}   ${
+                      !dark && Tables ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -298,7 +302,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            Tables ? "block " : "hidden"
+                            Tables ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setTables(!Tables)}
                         />
@@ -307,14 +311,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            Tables ? "hidden " : "block"
+                            Tables ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setTables(!Tables)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!Tables ? "hidden " : "block"}`}>
+                  <div className={`${!Tables ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <a href="laudantium" className="flex text-gray-200">
                         <div>
@@ -332,18 +336,19 @@ const Sidebar = ({ dark, Open }) => {
                         <span className="text-sm">Blog</span>
                       </a>
                       <div />
-                    </div>{" "}
+                    </div>
+                    {' '}
                   </div>
                 </li>
                 <li>
                   <a
                     href="#link"
                     className={`${
-                      From ? "bg-hover" : ""
+                      From ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && From ? "bg-profileDark" : ""}   ${
-                      !dark && From ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && From ? 'bg-profileDark' : ''}   ${
+                      !dark && From ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -356,7 +361,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            From ? "block " : "hidden"
+                            From ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setFrom(!From)}
                         />
@@ -365,14 +370,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            From ? "hidden " : "block"
+                            From ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setFrom(!From)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!From ? "hidden " : "block"}`}>
+                  <div className={`${!From ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <a href="laudantium" className="flex text-gray-200">
                         <div>
@@ -390,18 +395,19 @@ const Sidebar = ({ dark, Open }) => {
                         <span className="text-sm">TextArea</span>
                       </a>
                       <div />
-                    </div>{" "}
+                    </div>
+                    {' '}
                   </div>
                 </li>
                 <li>
                   <a
                     href="#link"
                     className={`${
-                      Button ? "bg-hover" : ""
+                      Button ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && Button ? "bg-profileDark" : ""}   ${
-                      !dark && Button ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && Button ? 'bg-profileDark' : ''}   ${
+                      !dark && Button ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -414,7 +420,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            Button ? "block " : "hidden"
+                            Button ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setButton(!Button)}
                         />
@@ -423,14 +429,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            Button ? "hidden " : "block"
+                            Button ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setButton(!Button)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!Button ? "hidden " : "block"}`}>
+                  <div className={`${!Button ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <a href="laudantium" className="flex text-gray-200">
                         <div>
@@ -455,11 +461,11 @@ const Sidebar = ({ dark, Open }) => {
                   <a
                     href="#link"
                     className={`${
-                      user ? "bg-hover" : ""
+                      user ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && user ? "bg-profileDark" : ""}   ${
-                      !dark && user ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && user ? 'bg-profileDark' : ''}   ${
+                      !dark && user ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -472,7 +478,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            user ? "block " : "hidden"
+                            user ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setUser(!user)}
                         />
@@ -481,14 +487,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            user ? "hidden " : "block"
+                            user ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setUser(!user)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!user ? "hidden " : "block"}`}>
+                  <div className={`${!user ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <Link
                         to="/users"
@@ -533,11 +539,11 @@ const Sidebar = ({ dark, Open }) => {
                   <a
                     href="#link"
                     className={`${
-                      profolios ? "bg-hover" : ""
+                      profolios ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && profolios ? "bg-profileDark" : ""}   ${
-                      !dark && profolios ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && profolios ? 'bg-profileDark' : ''}   ${
+                      !dark && profolios ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -550,7 +556,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            profolios ? "block " : "hidden"
+                            profolios ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setProfolios(!profolios)}
                         />
@@ -559,14 +565,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            profolios ? "hidden " : "block"
+                            profolios ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setProfolios(!profolios)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!profolios ? "hidden " : "block"}`}>
+                  <div className={`${!profolios ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <a href="laudantium" className="flex text-gray-200">
                         <div>
@@ -600,11 +606,11 @@ const Sidebar = ({ dark, Open }) => {
                   <a
                     href="#link"
                     className={`${
-                      blog ? "bg-hover" : ""
+                      blog ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && blog ? "bg-profileDark" : ""}   ${
-                      !dark && blog ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && blog ? 'bg-profileDark' : ''}   ${
+                      !dark && blog ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -617,7 +623,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            blog ? "block " : "hidden"
+                            blog ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setBlog(!blog)}
                         />
@@ -626,14 +632,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            blog ? "hidden " : "block"
+                            blog ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setBlog(!blog)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!blog ? "hidden " : "block"}`}>
+                  <div className={`${!blog ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <Link to="/blogs" className="flex text-gray-200">
                         <div>
@@ -670,11 +676,11 @@ const Sidebar = ({ dark, Open }) => {
                   <a
                     href="#link"
                     className={`${
-                      Email ? "bg-hover" : ""
+                      Email ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && Email ? "bg-profileDark" : ""}   ${
-                      !dark && Email ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && Email ? 'bg-profileDark' : ''}   ${
+                      !dark && Email ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -687,7 +693,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            Email ? "block " : "hidden"
+                            Email ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setEmail(!Email)}
                         />
@@ -696,14 +702,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            Email ? "hidden " : "block"
+                            Email ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setEmail(!Email)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!Email ? "hidden " : "block"}`}>
+                  <div className={`${!Email ? 'hidden ' : 'block'}`}>
                     <div className="flex justify-between my-2">
                       <a href="laudantium" className="flex text-gray-200">
                         <div>
@@ -746,11 +752,11 @@ const Sidebar = ({ dark, Open }) => {
                   <a
                     href="#link"
                     className={`${
-                      pages ? "bg-hover" : ""
+                      pages ? 'bg-hover' : ''
                     } flex justify-between ${
-                      dark ? "hover:bg-profileDark " : "hover:bg-hover "
-                    }  ${dark && pages ? "bg-profileDark" : ""}   ${
-                      !dark && pages ? "bg-hover" : ""
+                      dark ? 'hover:bg-profileDark ' : 'hover:bg-hover '
+                    }  ${dark && pages ? 'bg-profileDark' : ''}   ${
+                      !dark && pages ? 'bg-hover' : ''
                     }   p-2`}
                   >
                     <div className="flex">
@@ -763,7 +769,7 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <AiOutlineDown
                           className={`${
-                            pages ? "block " : "hidden"
+                            pages ? 'block ' : 'hidden'
                           } text-sm mt-1  mx-2 font-bold`}
                           onClick={() => setPages(!pages)}
                         />
@@ -772,14 +778,14 @@ const Sidebar = ({ dark, Open }) => {
                       <div>
                         <BsChevronRight
                           className={`${
-                            pages ? "hidden " : "block"
+                            pages ? 'hidden ' : 'block'
                           } text-sm mt-1 mx-2 font-bold`}
                           onClick={() => setPages(!pages)}
                         />
                       </div>
                     )}
                   </a>
-                  <div className={`${!pages ? "hidden " : "block"}`}>
+                  <div className={`${!pages ? 'hidden ' : 'block'}`}>
                     <Link to="/register" className="flex justify-between my-2">
                       <div className="flex text-gray-200">
                         <div>

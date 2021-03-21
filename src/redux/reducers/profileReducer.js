@@ -4,7 +4,8 @@ import {
   PROFILE_REQUEST,
   UPDATE_SUCCESS,
   UPDATE_FAILED,
-} from "../action/type";
+} from '../action/type';
+
 const initialState = {
   userData: null,
   error: null,

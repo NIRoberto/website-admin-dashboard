@@ -1,4 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e0fd6410-6ede-47c2-8a5b-0764165e5664/deploy-status)](https://app.netlify.com/sites/admin-dashboard-template/deploys)
+[![CI/CD](https://github.com/NIRoberto/website-admin-dashboard/actions/workflows/ci.yaml/badge.svg)](https://github.com/NIRoberto/website-admin-dashboard/actions/workflows/ci.yaml)
 
 # Admin dashboard
 

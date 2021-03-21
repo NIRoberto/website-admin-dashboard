@@ -1,26 +1,34 @@
-import React, { useEffect } from "react";
-import logo from "assets/img/Eo_circle_light-blue_white_letter-r.svg";
-import { Link, useHistory } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
-import validationSchema from "./validation/registerValidation";
-import { useDispatch } from "react-redux";
-import axios from "axios";
-import { signFailed, signupSuccess } from "redux/action/userAction";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useEffect } from 'react';
+import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
+import { Link, useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  Formik, Form, Field, ErrorMessage,
+} from 'formik';
+import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { signFailed, signupSuccess } from 'redux/action/userAction';
+import setAuthorizationToken from 'utils/setAuth';
+
+import validationSchema from './validation/registerValidation';
+
 const RegisterComponents = () => {
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
   };
 
   const dispatch = useDispatch();
   const history = useHistory();
   const onSubmit = (values) => {
-    const { firstName, lastName, email, password } = values;
+    const {
+      firstName, lastName, email, password,
+    } = values;
     const user = {
       firstName,
       lastName,
@@ -29,32 +37,33 @@ const RegisterComponents = () => {
     };
 
     axios
-      .post(`https://dashboard-r-api.herokuapp.com/api/v1/users/signup`, user)
+      .post('https://dashboard-r-api.herokuapp.com/api/v1/users/signup', user)
       .then((data) => {
         dispatch(signupSuccess(data));
 
-        localStorage.setItem("token", data.data.token);
-        localStorage.setItem("userInfo", JSON.stringify(data));
-        toast.success("user signup successfully");
+        localStorage.setItem('token', data.data.token);
+        setAuthorizationToken(data.data.token);
+
+        localStorage.setItem('userInfo', JSON.stringify(data));
+        toast.success('user signup successfully');
 
         setTimeout(() => {
-          history.push("/user/profile");
+          history.push('/user/profile');
           setTimeout(() => {
             toast.success(`Welcome ${data.data.data.newUser.firstName}`);
           }, 6000);
         }, 3000);
       })
       .catch((error) => {
-        dispatch({ type: "SIGNUP_FAILED ", payload: error });
-        toast.error("Email has been  taken by other person");
-        console.log(error.message);
+        dispatch({ type: 'SIGNUP_FAILED ', payload: error });
+        toast.error('Email has been  taken by other person');
         dispatch(signFailed(error.message));
       });
   };
 
   useEffect(() => {
     if (localStorage.token) {
-      history.push("/user/profile");
+      history.push('/user/profile');
     }
   }, []);
 
@@ -125,7 +134,7 @@ const RegisterComponents = () => {
 
             <div className="formControl flex-col flex w-11/12 md:w-7/12     items-center">
               <div className="w-full">
-                <label htmlFor="Password">Password</label>
+                <label htmlFor="password">Password</label>
                 <Field
                   type="password"
                   className="p-2 focus:outline-none  w-full border-gray-400 border rounded-md my-2"
@@ -141,10 +150,12 @@ const RegisterComponents = () => {
             </div>
             <div className="flex justify-between mt-4 w-11/12 md:w-7/12">
               <div>
-                Signin{" "}
+                Signin
+                {' '}
                 <Link to="/Login" className="text-main">
-                  {" "}
-                  here{" "}
+                  {' '}
+                  here
+                  {' '}
                 </Link>
               </div>
               <div className="bg-main hover:bg-hover transition duration-500 ease-in-out text-white py-2 px-8 rounded-md">

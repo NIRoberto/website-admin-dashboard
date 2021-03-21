@@ -1,32 +1,34 @@
-import React, { useEffect } from "react";
-import CountUp from "react-countup";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useEffect } from 'react';
+import CountUp from 'react-countup';
 import {
   AiFillHome,
   AiFillLinkedin,
   AiFillTwitterSquare,
   AiFillYoutube,
   AiOutlineFundProjectionScreen,
-} from "react-icons/ai";
-import { GiTakeMyMoney } from "react-icons/gi";
-import { ImFacebook2 } from "react-icons/im";
-import { BsFilePost } from "react-icons/bs";
-import { FaUsers } from "react-icons/fa";
-import logo from "assets/img/Eo_circle_light-blue_white_letter-r.svg";
-import Testimonials from "./Testimonials";
-import { useHistory } from "react-router";
+} from 'react-icons/ai';
+import { GiTakeMyMoney } from 'react-icons/gi';
+import { ImFacebook2 } from 'react-icons/im';
+import { BsFilePost } from 'react-icons/bs';
+import { FaUsers } from 'react-icons/fa';
+import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
+import { useHistory } from 'react-router';
+import Testimonials from './Testimonials';
 
 const Content = ({ dark, setOpen }) => {
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
-      history.push("/login");
+      history.push('/login');
     }
   }, []);
 
   return (
     <div
       className={`${
-        dark ? "bg-dark text-white" : "bg-surface text-gray-800"
+        dark ? 'bg-dark text-white' : 'bg-surface text-gray-800'
       } col-end-13 bg-surface col-start-1 lg:col-start-3  row-start-2  row-end-4 p-3`}
       onClick={() => setOpen(false)}
     >
@@ -39,14 +41,16 @@ const Content = ({ dark, setOpen }) => {
           <span>
             <AiFillHome className="text-main mr-1 mt-1 " />
           </span>
-          /<span className="mx-1">Dashboard</span>/
+          /
+          <span className="mx-1">Dashboard</span>
+          /
           <span className="mx-1">Business</span>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  my-4 gap-4">
         <div
           className={`${
-            dark ? "bg-profileDark" : "bg-white"
+            dark ? 'bg-profileDark' : 'bg-white'
           } items-center justify-around p-4 shadow-md flex rounded-md `}
         >
           <div className="flex flex-col ">
@@ -61,7 +65,7 @@ const Content = ({ dark, setOpen }) => {
         </div>
         <div
           className={`${
-            dark ? "bg-profileDark" : "bg-white"
+            dark ? 'bg-profileDark' : 'bg-white'
           } items-center justify-around p-4 shadow-md flex rounded-md `}
         >
           <div className="flex flex-col ">
@@ -69,7 +73,7 @@ const Content = ({ dark, setOpen }) => {
             <CountUp
               className="font-bold text-xl"
               end={7000}
-              prefix={"$"}
+              prefix="$"
               duration={10}
             />
           </div>
@@ -81,7 +85,7 @@ const Content = ({ dark, setOpen }) => {
         </div>
         <div
           className={`${
-            dark ? "bg-profileDark text-white" : "bg-white"
+            dark ? 'bg-profileDark text-white' : 'bg-white'
           } items-center justify-around p-4 shadow-md flex rounded-md `}
         >
           <div className="flex flex-col ">
@@ -96,7 +100,7 @@ const Content = ({ dark, setOpen }) => {
         </div>
         <div
           className={`${
-            dark ? "bg-profileDark" : "bg-white"
+            dark ? 'bg-profileDark' : 'bg-white'
           } items-center justify-around p-4 shadow-md flex rounded-md `}
         >
           <div className="flex flex-col ">
@@ -113,7 +117,7 @@ const Content = ({ dark, setOpen }) => {
       {/*   short description to our business  */}
       <div
         className={`${
-          dark ? "bg-profileDark text-white" : " text-gray-800 bg-white"
+          dark ? 'bg-profileDark text-white' : ' text-gray-800 bg-white'
         } grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 shadow-md p-4`}
       >
         <div className="flex flex-col items-center justify-center  col-span-1 border-gray-200 border-r">
@@ -152,11 +156,12 @@ const Content = ({ dark, setOpen }) => {
         <div className="grid grid-cols-1 md:grid-cols-2  mt-6 gap-4">
           <div
             className={`${
-              dark ? "bg-profileDark text-white" : " bg-white text-gray-800 "
+              dark ? 'bg-profileDark text-white' : ' bg-white text-gray-800 '
             } shadow-md   flex p-4 rounded-md item-center  `}
           >
             <span>
-              <ImFacebook2 className="text-blue-800 text-5xl mr-2 " />{" "}
+              <ImFacebook2 className="text-blue-800 text-5xl mr-2 " />
+              {' '}
             </span>
             <div className="flex flex-col">
               <span>Facebook</span>
@@ -167,11 +172,12 @@ const Content = ({ dark, setOpen }) => {
           </div>
           <div
             className={`${
-              dark ? "bg-profileDark text-white" : " bg-white text-gray-800 "
+              dark ? 'bg-profileDark text-white' : ' bg-white text-gray-800 '
             } shadow-md  flex p-4 rounded-md item-center   `}
           >
             <span>
-              <AiFillTwitterSquare className="text-main text-5xl mr-2 " />{" "}
+              <AiFillTwitterSquare className="text-main text-5xl mr-2 " />
+              {' '}
             </span>
             <div className="flex flex-col">
               <span>Twitter</span>
@@ -182,11 +188,12 @@ const Content = ({ dark, setOpen }) => {
           </div>
           <div
             className={`${
-              dark ? "bg-profileDark text-white" : " bg-white text-gray-800 "
+              dark ? 'bg-profileDark text-white' : ' bg-white text-gray-800 '
             } shadow-md  flex p-4 rounded-md item-center   `}
           >
             <span>
-              <AiFillLinkedin className="text-blue-600 text-5xl mr-2 " />{" "}
+              <AiFillLinkedin className="text-blue-600 text-5xl mr-2 " />
+              {' '}
             </span>
             <div className="flex flex-col">
               <span>LinkedIn</span>
@@ -197,11 +204,12 @@ const Content = ({ dark, setOpen }) => {
           </div>
           <div
             className={`${
-              dark ? "bg-profileDark text-white" : " bg-white text-gray-800 "
+              dark ? 'bg-profileDark text-white' : ' bg-white text-gray-800 '
             } shadow-md   flex p-4 rounded-md item-center  `}
           >
             <span>
-              <AiFillYoutube className="text-red-600 text-5xl mr-2 " />{" "}
+              <AiFillYoutube className="text-red-600 text-5xl mr-2 " />
+              {' '}
             </span>
             <div className="flex flex-col">
               <span>Youtube</span>
@@ -214,7 +222,7 @@ const Content = ({ dark, setOpen }) => {
         {/* services */}
         <div
           className={`${
-            dark ? " bg-profileDark  text-white" : "bg-white text-gray-800"
+            dark ? ' bg-profileDark  text-white' : 'bg-white text-gray-800'
           }  mt-4 overflow-x-auto lg:overflow-hidden  p-4`}
         >
           <div className="text-2xl border-b font-bold border-gray-200 py-4 ">
@@ -262,7 +270,7 @@ const Content = ({ dark, setOpen }) => {
         {/*  Employee */}
         <div
           className={`${
-            dark ? " bg-profileDark  text-white" : "bg-white text-gray-800"
+            dark ? ' bg-profileDark  text-white' : 'bg-white text-gray-800'
           }  mt-4  p-4`}
         >
           <div className="text-2xl border-b font-bold border-gray-200 py-4 ">
@@ -303,7 +311,7 @@ const Content = ({ dark, setOpen }) => {
           </div>
         </div>
         <div
-          className={`${dark ? " bg-profileDark" : " bg-white"} mt-4 shadow-md`}
+          className={`${dark ? ' bg-profileDark' : ' bg-white'} mt-4 shadow-md`}
         >
           <Testimonials />
         </div>
