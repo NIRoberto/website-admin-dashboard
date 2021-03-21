@@ -5,6 +5,8 @@ import {
   LOGIN_FAILED,
   LOGIN_SUCCESS,
   SIGNUP_REQUEST,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILED,
 } from "../action/type";
 
 const userReducer = (state = userInitialState, action) => {
@@ -35,6 +37,18 @@ const userReducer = (state = userInitialState, action) => {
         errorR: null,
       };
     case LOGIN_FAILED:
+      return {
+        ...state,
+        isLogged: false,
+        errorL: null,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isLogged: true,
+        errorR: null,
+      };
+    case LOGOUT_FAILED:
       return {
         ...state,
         isLogged: false,

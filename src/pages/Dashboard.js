@@ -1,4 +1,4 @@
-import { connect } from "formik";
+import { connect } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { logout } from "redux/action/userAction";

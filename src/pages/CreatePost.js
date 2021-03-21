@@ -52,10 +52,14 @@ const CreatePost = ({ LOGOUT }) => {
     </>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    userData: state.profile,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     LOGOUT: () => dispatch(logout()),
   };
 };
-
-export default connect(mapDispatchToProps)(CreatePost);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePost);

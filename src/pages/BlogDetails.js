@@ -52,6 +52,11 @@ const BlogDetails = ({ LOGOUT }) => {
     </>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    userData: state.profile,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -59,4 +64,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapDispatchToProps)(BlogDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(BlogDetails);

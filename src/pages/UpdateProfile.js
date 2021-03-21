@@ -4,6 +4,7 @@ import Sidebar from "components/dashboard/Sidebar";
 import UpdateForm from "components/dashboard/users/UpdateForm";
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import { logout } from "redux/action/userAction";
 import Loader from "skeletons/Loader/Loader";
 
@@ -31,6 +32,7 @@ const UpdateProfile = ({ LOGOUT }) => {
           loader ? "hidden" : "grid"
         }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
       >
+        <ToastContainer />
         <Navbar
           logout={LOGOUT}
           dark={Dark}
@@ -46,9 +48,14 @@ const UpdateProfile = ({ LOGOUT }) => {
     </>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    userData: state.profile,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     LOGOUT: () => dispatch(logout()),
   };
 };
-export default connect(mapDispatchToProps)(UpdateProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateProfile);
