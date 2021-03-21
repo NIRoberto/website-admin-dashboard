@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaBars, FaRegEnvelope, FaRegUser, FaSearch } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { IoMoonOutline, IoSettingsOutline } from "react-icons/io5";
@@ -27,6 +27,12 @@ const Navbar = ({ dark, Open, setDark, setOpen, logout }) => {
       history.push("/login");
     }, 3000);
   };
+  useEffect(() => {
+    if (!localStorage.token) {
+      history.push("/login");
+    }
+  }, []);
+
   return (
     <div
       className={`${

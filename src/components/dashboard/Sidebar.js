@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoLogOutOutline } from "react-icons/io5";
 import {
   AiOutlineDashboard,
@@ -18,7 +18,7 @@ import { SiUikit, SiWebauthn } from "react-icons/si";
 import logo from "assets/img/Eo_circle_light-blue_white_letter-r.svg";
 import { MdEmail, MdWidgets } from "react-icons/md";
 import "./scroll.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Sidebar = ({ dark, Open }) => {
   const [sidebar, setSidebar] = useState(false);
@@ -41,6 +41,14 @@ const Sidebar = ({ dark, Open }) => {
     profileImage,
     role,
   } = user1.data.LoggedInAs.user;
+
+  const history = useHistory();
+  useEffect(() => {
+    if (!localStorage.token) {
+      history.push("/login");
+    }
+  }, []);
+
   return (
     <div
       className={`${dark ? "bg-NavDark" : "bg-main"} ${

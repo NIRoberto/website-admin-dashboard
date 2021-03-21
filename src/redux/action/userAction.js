@@ -1,11 +1,13 @@
 import { toast } from "react-toastify";
 
-const {
+import {
   SIGNUP_SUCCESS,
   SIGNUP_FAILED,
   LOGIN_SUCCESS,
+  LOGOUT_FAILED,
+  LOGOUT_SUCCESS,
   LOGIN_FAILED,
-} = require("./type");
+} from "./type";
 
 const signupSuccess = (message) => {
   return {
@@ -34,14 +36,29 @@ const loginFailed = (error) => {
     payload: error,
   };
 };
+const logoutSuccess = () => {
+  return {
+    type: LOGOUT_SUCCESS,
+  };
+};
+
+const logoutFailed = () => {
+  return {
+    type: LOGOUT_FAILED,
+  };
+};
 
 const logout = () => {
-  if (localStorage.token) {
-    localStorage.removeItem("token");
-    toast.success("user logout successfully");
-  } else {
-    console.log("error");
-  }
+  return (dispatch) => {
+    if (localStorage.token) {
+      localStorage.removeItem("token");
+      dispatch(logoutSuccess);
+      toast.success("user logout successfully");
+    } else {
+      dispatch(logoutFailed);
+      console.log("error");
+    }
+  };
 };
 
 export { signFailed, signupSuccess, loginSuccess, loginFailed, logout };
