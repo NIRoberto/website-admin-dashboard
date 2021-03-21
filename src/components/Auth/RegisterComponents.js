@@ -4,15 +4,14 @@ import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
 import { Link, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {
-  Formik, Form, Field, ErrorMessage,
-} from 'formik';
-import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { FaTwitterSquare } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { signFailed, signupSuccess } from 'redux/action/userAction';
 import setAuthorizationToken from 'utils/setAuth';
 
+import { FcGoogle } from 'react-icons/fc';
 import validationSchema from './validation/registerValidation';
 
 const RegisterComponents = () => {
@@ -25,10 +24,8 @@ const RegisterComponents = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const onSubmit = (values) => {
-    const {
-      firstName, lastName, email, password,
-    } = values;
+  const onSubmit = values => {
+    const { firstName, lastName, email, password } = values;
     const user = {
       firstName,
       lastName,
@@ -38,13 +35,12 @@ const RegisterComponents = () => {
 
     axios
       .post('https://dashboard-r-api.herokuapp.com/api/v1/users/signup', user)
-      .then((data) => {
+      .then(data => {
         dispatch(signupSuccess(data));
 
         localStorage.setItem('token', data.data.token);
         setAuthorizationToken(data.data.token);
 
-        localStorage.setItem('userInfo', JSON.stringify(data));
         toast.success('user signup successfully');
 
         setTimeout(() => {
@@ -54,7 +50,7 @@ const RegisterComponents = () => {
           }, 6000);
         }, 3000);
       })
-      .catch((error) => {
+      .catch(error => {
         dispatch({ type: 'SIGNUP_FAILED ', payload: error });
         toast.error('Email has been  taken by other person');
         dispatch(signFailed(error.message));
@@ -150,12 +146,10 @@ const RegisterComponents = () => {
             </div>
             <div className="flex justify-between mt-4 w-11/12 md:w-7/12">
               <div>
-                Signin
-                {' '}
+                Signin{' '}
                 <Link to="/Login" className="text-main">
                   {' '}
-                  here
-                  {' '}
+                  here{' '}
                 </Link>
               </div>
               <div className="bg-main hover:bg-hover transition duration-500 ease-in-out text-white py-2 px-8 rounded-md">
@@ -168,12 +162,12 @@ const RegisterComponents = () => {
               </div>
             </div>
           </Form>
-          <div className="bg-blue-900 mt-6  cursor-pointer hover:bg-blue-800 transition duration-500 ease-in-out  w-11/12 md:w-7/12 rounded-md flex text-white">
+          <div className="bg-white shadow-md mt-6  cursor-pointer hover:bg-gray-100  transition duration-500 ease-in-out  w-11/12 md:w-7/12 rounded-md flex ">
             <div className="flex items-center w-full h-full  justify-between">
-              <div className="bg-blue-800 rounded-md p-2 ">
-                <FaFacebookSquare className="h-6" />
+              <div className="  rounded-md p-2 ">
+                <FcGoogle className="h-6" />
               </div>
-              <div className="text-center  w-full">Signup with facebook</div>
+              <div className="text-center  w-full">Signup with google</div>
             </div>
           </div>
           <div className="bg-main mt-6  mb-6  hover:bg-hover transition duration-500 ease-in-out cursor-pointer w-11/12 md:w-7/12 rounded-md flex text-white">

@@ -3,9 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
-import {
-  FaBars, FaRegEnvelope, FaRegUser, FaSearch,
-} from 'react-icons/fa';
+import { FaBars, FaRegEnvelope, FaRegUser, FaSearch } from 'react-icons/fa';
 import { MdDateRange } from 'react-icons/md';
 import { IoMoonOutline, IoSettingsOutline } from 'react-icons/io5';
 import { IoIosLogOut } from 'react-icons/io';
@@ -19,14 +17,11 @@ import blank from 'assets/img/profile.png';
 import { FiSun } from 'react-icons/fi';
 import { useHistory } from 'react-router';
 
-const Navbar = ({
-  dark, Open, setDark, setOpen, logout,
-}) => {
+const Navbar = ({ dark, Open, user, setDark, setOpen, logout }) => {
   const [notice, setNotice] = useState(false);
   const [Log, setLog] = useState(false);
   const [message, setMessage] = useState(false);
-  const user = JSON.parse(localStorage.getItem('userInfo'));
-  const { profileImage } = user.data.LoggedInAs.user;
+  const { profileImage } = user;
   const history = useHistory();
 
   const Logout = () => {
@@ -122,15 +117,12 @@ const Navbar = ({
                     <div className="text">
                       <h3 className=" text-sm">
                         {' '}
-                        Hey Rob how was the weekend
-                        {' '}
+                        Hey Rob how was the weekend{' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
                         {' '}
-                        <MdDateRange className="text-sm mr-1 " />
-                        {' '}
-                        Feb 2 2020
+                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
                       </span>
                     </div>
                   </div>
@@ -146,15 +138,12 @@ const Navbar = ({
                     <div className="text">
                       <h3 className=" text-sm">
                         {' '}
-                        Hey Rob how was the weekend
-                        {' '}
+                        Hey Rob how was the weekend{' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
                         {' '}
-                        <MdDateRange className="text-sm mr-1 " />
-                        {' '}
-                        Feb 2 2020
+                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
                       </span>
                     </div>
                   </div>
@@ -214,15 +203,12 @@ const Navbar = ({
                     <div className="text">
                       <h3 className=" text-sm">
                         {' '}
-                        Hey Rob how was the weekend
-                        {' '}
+                        Hey Rob how was the weekend{' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
                         {' '}
-                        <MdDateRange className="text-sm mr-1 " />
-                        {' '}
-                        Feb 2 2020
+                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
                       </span>
                     </div>
                   </div>
@@ -245,19 +231,15 @@ const Navbar = ({
                     <div className="text">
                       <h3 className=" text-sm">
                         {' '}
-                        Hey Rob how was the weekend
-                        {' '}
+                        Hey Rob how was the weekend{' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
                         {' '}
-                        <MdDateRange className="text-sm mr-1 " />
-                        {' '}
-                        Feb 2 2020
+                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
                       </span>
                     </div>
-                  </div>
-                  {' '}
+                  </div>{' '}
                   <div
                     className={`${
                       dark ? 'hover:bg-gray-900' : 'hover:bg-gray-100'
@@ -277,19 +259,15 @@ const Navbar = ({
                     <div className="text">
                       <h3 className=" text-sm">
                         {' '}
-                        Hey Rob how was the weekend
-                        {' '}
+                        Hey Rob how was the weekend{' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
                         {' '}
-                        <MdDateRange className="text-sm mr-1 " />
-                        {' '}
-                        Feb 2 2020
+                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
                       </span>
                     </div>
-                  </div>
-                  {' '}
+                  </div>{' '}
                   <div
                     className={`${
                       dark ? 'hover:bg-gray-900' : 'hover:bg-gray-100'
@@ -309,15 +287,12 @@ const Navbar = ({
                     <div className="text">
                       <h3 className=" text-sm">
                         {' '}
-                        Hey Rob how was the weekend
-                        {' '}
+                        Hey Rob how was the weekend{' '}
                       </h3>
 
                       <span className="flex text-xs pt-1 ">
                         {' '}
-                        <MdDateRange className="text-sm mr-1 " />
-                        {' '}
-                        Feb 2 2020
+                        <MdDateRange className="text-sm mr-1 " /> Feb 2 2020
                       </span>
                     </div>
                   </div>
@@ -360,8 +335,7 @@ const Navbar = ({
                     <FaRegUser />
                   </div>
                   <div className="text-xs">Profile</div>
-                </a>
-                {' '}
+                </a>{' '}
                 <div
                   onClick={Logout}
                   className="flex p-2 border-b items-center  cursor-pointer justify-center text-red-500 border-gray-200"

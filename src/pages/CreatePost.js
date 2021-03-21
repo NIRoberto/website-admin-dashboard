@@ -5,10 +5,11 @@ import Sidebar from 'components/dashboard/Sidebar';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
+import { getSingleActionCreator } from 'redux/action/authProfile';
 import { logout } from 'redux/action/userAction';
 import Loader from 'skeletons/Loader/Loader';
 
-const CreatePost = ({ LOGOUT }) => {
+const CreatePost = ({ LOGOUT, user, getAuthProfile }) => {
   const [Dark, setDark] = useState(false);
   const [Open, setOpen] = useState(false);
   const [loader, setLoader] = useState(true);
@@ -18,6 +19,11 @@ const CreatePost = ({ LOGOUT }) => {
       setLoader(false);
     }, 4000);
   }, []);
+  useEffect(() => {
+    getAuthProfile();
+  }, []);
+  const authData = user.user.data.data;
+
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
@@ -40,6 +46,7 @@ const CreatePost = ({ LOGOUT }) => {
       >
         <Navbar
           logout={LOGOUT}
+          user={authData}
           dark={Dark}
           setDark={setDark}
           Open={Open}
@@ -52,10 +59,12 @@ const CreatePost = ({ LOGOUT }) => {
     </>
   );
 };
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   userData: state.profile,
+  user: state.authProfile,
 });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   LOGOUT: () => dispatch(logout()),
+  getAuthProfile: () => dispatch(getSingleActionCreator()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePost);

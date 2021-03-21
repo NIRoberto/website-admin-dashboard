@@ -24,7 +24,7 @@ import { SiUikit, SiWebauthn } from 'react-icons/si';
 import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
 import './scroll.css';
 
-const Sidebar = ({ dark, Open }) => {
+const Sidebar = ({ dark, authUser, Open }) => {
   const [sidebar, setSidebar] = useState(false);
   // const [link2, setLink2] = useState(false);
   // const [form, setForm] = useState(false);
@@ -38,13 +38,8 @@ const Sidebar = ({ dark, Open }) => {
   const [From, setFrom] = useState(false);
   const [Button, setButton] = useState(false);
   const [Tables, setTables] = useState(false);
-  const user1 = JSON.parse(localStorage.getItem('userInfo'));
-  const {
-    firstName,
-    lastName,
-    profileImage,
-    role,
-  } = user1.data.LoggedInAs.user;
+
+  const { firstName, lastName, profileImage, role } = authUser.user;
 
   const history = useHistory();
   useEffect(() => {
@@ -336,8 +331,7 @@ const Sidebar = ({ dark, Open }) => {
                         <span className="text-sm">Blog</span>
                       </a>
                       <div />
-                    </div>
-                    {' '}
+                    </div>{' '}
                   </div>
                 </li>
                 <li>
@@ -395,8 +389,7 @@ const Sidebar = ({ dark, Open }) => {
                         <span className="text-sm">TextArea</span>
                       </a>
                       <div />
-                    </div>
-                    {' '}
+                    </div>{' '}
                   </div>
                 </li>
                 <li>

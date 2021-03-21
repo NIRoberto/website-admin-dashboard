@@ -9,22 +9,22 @@ import {
   LOGIN_FAILED,
 } from './type';
 
-const signupSuccess = (message) => ({
+const signupSuccess = message => ({
   type: SIGNUP_SUCCESS,
   payload: message,
 });
 
-const signFailed = (error) => ({
+const signFailed = error => ({
   type: SIGNUP_FAILED,
   payload: error,
 });
 
-const loginSuccess = (user) => ({
+const loginSuccess = user => ({
   type: LOGIN_SUCCESS,
   payload: user,
 });
 
-const loginFailed = (error) => ({
+const loginFailed = error => ({
   type: LOGIN_FAILED,
   payload: error,
 });
@@ -36,7 +36,7 @@ const logoutFailed = () => ({
   type: LOGOUT_FAILED,
 });
 
-const logout = () => (dispatch) => {
+const logout = () => dispatch => {
   if (localStorage.token) {
     localStorage.removeItem('token');
     dispatch(logoutSuccess);
@@ -47,6 +47,4 @@ const logout = () => (dispatch) => {
   }
 };
 
-export {
-  signFailed, signupSuccess, loginSuccess, loginFailed, logout,
-};
+export { signFailed, signupSuccess, loginSuccess, loginFailed, logout };

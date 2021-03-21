@@ -41,9 +41,7 @@ const Content = ({ dark, setOpen }) => {
           <span>
             <AiFillHome className="text-main mr-1 mt-1 " />
           </span>
-          /
-          <span className="mx-1">Dashboard</span>
-          /
+          /<span className="mx-1">Dashboard</span>/
           <span className="mx-1">Business</span>
         </div>
       </div>
@@ -160,8 +158,7 @@ const Content = ({ dark, setOpen }) => {
             } shadow-md   flex p-4 rounded-md item-center  `}
           >
             <span>
-              <ImFacebook2 className="text-blue-800 text-5xl mr-2 " />
-              {' '}
+              <ImFacebook2 className="text-blue-800 text-5xl mr-2 " />{' '}
             </span>
             <div className="flex flex-col">
               <span>Facebook</span>
@@ -176,8 +173,7 @@ const Content = ({ dark, setOpen }) => {
             } shadow-md  flex p-4 rounded-md item-center   `}
           >
             <span>
-              <AiFillTwitterSquare className="text-main text-5xl mr-2 " />
-              {' '}
+              <AiFillTwitterSquare className="text-main text-5xl mr-2 " />{' '}
             </span>
             <div className="flex flex-col">
               <span>Twitter</span>
@@ -192,8 +188,7 @@ const Content = ({ dark, setOpen }) => {
             } shadow-md  flex p-4 rounded-md item-center   `}
           >
             <span>
-              <AiFillLinkedin className="text-blue-600 text-5xl mr-2 " />
-              {' '}
+              <AiFillLinkedin className="text-blue-600 text-5xl mr-2 " />{' '}
             </span>
             <div className="flex flex-col">
               <span>LinkedIn</span>
@@ -208,8 +203,7 @@ const Content = ({ dark, setOpen }) => {
             } shadow-md   flex p-4 rounded-md item-center  `}
           >
             <span>
-              <AiFillYoutube className="text-red-600 text-5xl mr-2 " />
-              {' '}
+              <AiFillYoutube className="text-red-600 text-5xl mr-2 " />{' '}
             </span>
             <div className="flex flex-col">
               <span>Youtube</span>

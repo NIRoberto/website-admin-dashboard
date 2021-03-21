@@ -22,9 +22,7 @@ const AllBlog = ({ dark, setOpen }) => (
         <span>
           <AiFillHome className="text-main mr-1 mt-1 " />
         </span>
-        /
-        <span className="mx-1">Blogs</span>
-        /
+        /<span className="mx-1">Blogs</span>/
         <span className="mx-1">All Blogs</span>
       </div>
     </div>
@@ -70,7 +68,7 @@ const AllBlog = ({ dark, setOpen }) => (
       </ul>
     </div>
     <div className=" mt-4 grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-4">
-      {blog.map((el) => (
+      {blog.map(el => (
         <BlogCard key={el.id} {...el} />
       ))}
     </div>

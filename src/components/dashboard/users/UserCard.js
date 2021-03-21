@@ -2,9 +2,7 @@ import React from 'react';
 import { FiInstagram, FiTwitter } from 'react-icons/fi';
 import { GrFacebookOption } from 'react-icons/gr';
 
-const UserCard = ({
-  firstName, lastName, dark, role, bio, profileImage,
-}) => (
+const UserCard = ({ firstName, lastName, dark, role, bio, profileImage }) => (
   <div
     className={`${
       dark ? 'bg-profileDark ' : 'bg-white '
@@ -28,8 +26,7 @@ const UserCard = ({
           <a href="#fb">
             <FiTwitter className="hover:text-main" />
           </a>
-        </li>
-        {' '}
+        </li>{' '}
         <li className="ml-4">
           <a href="#fb">
             <FiInstagram className="hover:text-main" />

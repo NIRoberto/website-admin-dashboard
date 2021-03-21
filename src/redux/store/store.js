@@ -1,23 +1,33 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 import profileReducer from 'redux/reducers/profileReducer';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import userReducer from 'redux/reducers/userReducer';
 import setAuthorizationToken from 'utils/setAuth';
+import authProfileReducer from 'redux/reducers/authProfileReducer';
 
-const rootReduces = combineReducers({
+const rootReducer = combineReducers({
   auth: userReducer,
   profile: profileReducer,
+  authProfile: authProfileReducer,
 });
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 setAuthorizationToken(localStorage.token);
 
 const store = createStore(
-  rootReduces,
+  persistedReducer,
 
-  composeWithDevTools(applyMiddleware(logger, thunk)),
+  composeWithDevTools(applyMiddleware(thunk)),
 );
+const persistor = persistStore(store);
 
-export default store;
+export { store, persistor };

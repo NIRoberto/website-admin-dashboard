@@ -1,10 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import {
-  Formik, Field, Form, ErrorMessage,
-} from 'formik';
-import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { FaTwitterSquare } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import './input.css';
 import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
@@ -12,6 +10,7 @@ import axios from 'axios';
 import { loginFailed, loginSuccess } from 'redux/action/userAction';
 import { useDispatch } from 'react-redux';
 import setAuthorizationToken from 'utils/setAuth';
+import { FcGoogle } from 'react-icons/fc';
 import validationSchema from './validation/loginValidate';
 
 const LoginComponents = () => {
@@ -22,7 +21,7 @@ const LoginComponents = () => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const onSubmit = (values) => {
+  const onSubmit = values => {
     const { email, password } = values;
     const user = {
       email,
@@ -31,27 +30,31 @@ const LoginComponents = () => {
 
     axios
       .post('https://dashboard-r-api.herokuapp.com/api/v1/users/signin', user)
-      .then((data) => {
+      .then(data => {
         dispatch(loginSuccess(data));
 
         localStorage.setItem('token', data.data.token);
         setAuthorizationToken(data.data.token);
-        localStorage.setItem('userInfo', JSON.stringify(data));
         toast.success('User login successfully');
 
         setTimeout(() => {
           history.push('/user/profile');
           setTimeout(() => {
-            toast.success(`Welcome ${data.data.LoggedInAs.user.firstName}`);
+            toast.success(`Welcome ${data.data.message}`);
           }, 8000);
         }, 3000);
       })
-      .catch((error) => {
+      .catch(error => {
         dispatch({ type: 'SIGNUP_FAILED ', payload: error });
         toast.error(error.message);
         dispatch(loginFailed(error.message));
       });
   };
+  useEffect(() => {
+    if (localStorage.token) {
+      history.push('/');
+    }
+  }, []);
   return (
     <div className=" flex items-center justify-center">
       <ToastContainer autoClose={2000} />
@@ -105,8 +108,7 @@ const LoginComponents = () => {
             </div>
             <div className="flex justify-between mt-4 w-4/5 md:w-6/12">
               <div>
-                Signup
-                {' '}
+                Signup{' '}
                 <Link to="/register" className="text-main">
                   {' '}
                   here
@@ -122,12 +124,12 @@ const LoginComponents = () => {
               </div>
             </div>
           </Form>
-          <div className="bg-blue-900 mt-6  cursor-pointer hover:bg-blue-800 transition duration-500 ease-in-out  w-4/5 md:w-6/12 rounded-md flex text-white">
+          <div className="bg-white mt-6  shadow-md cursor-pointer hover:bg-gray-100  transition duration-500 ease-in-out w-4/5 md:w-6/12 rounded-md flex">
             <div className="flex items-center w-full h-full  justify-between">
-              <div className="bg-blue-800 rounded-md p-2 ">
-                <FaFacebookSquare className="h-6" />
+              <div className=" rounded-md p-2 ">
+                <FcGoogle className="h-6" />
               </div>
-              <div className="text-center  w-full">Signin with facebook</div>
+              <div className="text-center  w-full">Signin with google</div>
             </div>
           </div>
           <div className="bg-main mt-6  mb-6  hover:bg-hover transition duration-500 ease-in-out cursor-pointer w-4/5 md:w-6/12 rounded-md flex text-white">

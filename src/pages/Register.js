@@ -27,7 +27,7 @@ const Register = () => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   userInfo: state.auth,
 });
 
