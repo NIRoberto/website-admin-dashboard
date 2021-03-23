@@ -22,7 +22,6 @@ const CreatePost = ({ LOGOUT, user, getAuthProfile }) => {
   useEffect(() => {
     getAuthProfile();
   }, []);
-  const authData = user.user.data.data;
 
   const history = useHistory();
   useEffect(() => {
@@ -30,6 +29,7 @@ const CreatePost = ({ LOGOUT, user, getAuthProfile }) => {
       history.push('/login');
     }
   }, []);
+
   return (
     <>
       <div
@@ -46,7 +46,7 @@ const CreatePost = ({ LOGOUT, user, getAuthProfile }) => {
       >
         <Navbar
           logout={LOGOUT}
-          user={authData}
+          user={user}
           dark={Dark}
           setDark={setDark}
           Open={Open}
@@ -61,7 +61,7 @@ const CreatePost = ({ LOGOUT, user, getAuthProfile }) => {
 };
 const mapStateToProps = state => ({
   userData: state.profile,
-  user: state.authProfile,
+  user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({
   LOGOUT: () => dispatch(logout()),

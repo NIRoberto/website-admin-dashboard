@@ -31,7 +31,7 @@ const Profile = ({ dark, authUser, setOpen }) => {
     birthDate,
     role,
     email,
-  } = authUser.user;
+  } = authUser;
 
   return (
     <div

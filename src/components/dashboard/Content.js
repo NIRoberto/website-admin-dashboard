@@ -17,7 +17,7 @@ import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
 import { useHistory } from 'react-router';
 import Testimonials from './Testimonials';
 
-const Content = ({ dark, setOpen }) => {
+const Content = ({ dark, setOpen, userData }) => {
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
@@ -52,8 +52,12 @@ const Content = ({ dark, setOpen }) => {
           } items-center justify-around p-4 shadow-md flex rounded-md `}
         >
           <div className="flex flex-col ">
-            <span className="">Employee</span>
-            <CountUp className="font-bold text-xl" end={1000} duration={5} />
+            <span className="">Users</span>
+            <CountUp
+              className="font-bold text-xl"
+              end={userData.length}
+              duration={5}
+            />
           </div>
           <div>
             <span className="text-5xl ">

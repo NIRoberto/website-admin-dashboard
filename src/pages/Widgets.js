@@ -1,12 +1,12 @@
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { getSingleActionCreator } from 'redux/action/authProfile';
+import { connect } from 'react-redux';
+import { logout } from 'redux/action/userAction';
 import Footer from 'components/dashboard/Footer';
 import Navbar from 'components/dashboard/Navbar';
 import Sidebar from 'components/dashboard/Sidebar';
 import Widget from 'components/dashboard/Widget';
-import { connect } from 'react-redux';
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
-import { getSingleActionCreator } from 'redux/action/authProfile';
-import { logout } from 'redux/action/userAction';
 import Loader from 'skeletons/Loader/Loader';
 
 const Widgets = ({ user, getAuthProfile, LOGOUT }) => {
@@ -20,15 +20,15 @@ const Widgets = ({ user, getAuthProfile, LOGOUT }) => {
       setLoader(false);
     }, 4000);
   }, []);
-
-  const authData = user.user.data.data;
-
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
       history.push('/login');
     }
   }, []);
+
+  const authData = user;
+
   return (
     <>
       <div
@@ -46,12 +46,12 @@ const Widgets = ({ user, getAuthProfile, LOGOUT }) => {
         <Navbar
           dark={Dark}
           logout={LOGOUT}
-          user={authData}
+          user={user}
           setDark={setDark}
           Open={Open}
           setOpen={setOpen}
         />
-        <Sidebar authUser={authData} dark={Dark} Open={Open} />
+        <Sidebar authUser={user} dark={Dark} Open={Open} />
         <Widget dark={Dark} Open={Open} setOpen={setOpen} />
         <Footer dark={Dark} />
       </div>
@@ -60,7 +60,7 @@ const Widgets = ({ user, getAuthProfile, LOGOUT }) => {
 };
 const mapStateToProps = state => ({
   userData: state.profile,
-  user: state.authProfile,
+  user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({
   LOGOUT: () => dispatch(logout()),

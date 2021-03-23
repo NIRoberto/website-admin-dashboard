@@ -45,13 +45,13 @@ const userReducer = (state = userInitialState, action) => {
     case LOGOUT_SUCCESS:
       return {
         ...state,
-        isLogged: true,
+        isLogged: false,
         errorR: null,
       };
     case LOGOUT_FAILED:
       return {
         ...state,
-        isLogged: false,
+        isLogged: true,
         errorL: null,
       };
     default:

@@ -20,11 +20,13 @@ const getSingleActionCreator = () => dispatch => {
 
   axios
     .get(`https://dashboard-r-api.herokuapp.com/api/v1/users/user/`)
-    .then(data => {
-      dispatch(getSingleSuccess(data));
+    .then(res => {
+      const data1 = res.data.data.user;
+      dispatch(getSingleSuccess(data1));
     })
     .catch(error => {
-      dispatch(getSingleFailed(error));
+      const errorMsg = error.message;
+      dispatch(getSingleFailed(errorMsg));
     });
 };
 

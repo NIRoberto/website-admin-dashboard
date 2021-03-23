@@ -39,7 +39,7 @@ const Sidebar = ({ dark, authUser, Open }) => {
   const [Button, setButton] = useState(false);
   const [Tables, setTables] = useState(false);
 
-  const { firstName, lastName, profileImage, role } = authUser.user;
+  const { firstName, lastName, profileImage, role } = authUser;
 
   const history = useHistory();
   useEffect(() => {
