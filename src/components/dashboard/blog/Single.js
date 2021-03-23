@@ -117,8 +117,7 @@ const Single = ({ dark, setOpen }) => (
               eligendi odit inventore blanditiis aspernatur eius veniam ducimus.
             </p>
           </div>
-        </div>
-        {' '}
+        </div>{' '}
         <div className=" flex m-4 items-center">
           <img
             src={prof}
@@ -139,5 +138,4 @@ const Single = ({ dark, setOpen }) => (
     </div>
   </div>
 );
-
 export default Single;

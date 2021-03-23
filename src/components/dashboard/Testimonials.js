@@ -7,10 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Testimonials = () => {
   const [Index, setIndex] = useState(0);
-  const {
-    fullName, image, role, review,
-  } = client[Index];
-  const checkNumber = (number) => {
+  const { fullName, image, role, review } = client[Index];
+  const checkNumber = number => {
     if (number > client.length - 1) {
       return 0;
     }
@@ -21,13 +19,13 @@ const Testimonials = () => {
   };
 
   const prevClient = () => {
-    setIndex((index) => {
+    setIndex(index => {
       const newIndex = index + 1;
       return checkNumber(newIndex);
     });
   };
   const nextClient = () => {
-    setIndex((index) => {
+    setIndex(index => {
       const newIndex = index - 1;
       return checkNumber(newIndex);
     });

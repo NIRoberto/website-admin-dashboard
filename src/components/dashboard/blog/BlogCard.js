@@ -2,9 +2,7 @@ import React from 'react';
 import { AiFillDelete } from 'react-icons/ai';
 import { FaEdit } from 'react-icons/fa';
 
-const BlogCard = ({
-  fullName, desc, profileImage, title, blogImage,
-}) => (
+const BlogCard = ({ fullName, desc, profileImage, title, blogImage }) => (
   <div className="flex rounded-md bg-white shadow-md hover:shadow-lg  flex-col">
     <div className="px-2 flex items-center py-2">
       <img
@@ -22,16 +20,10 @@ const BlogCard = ({
       />
     </div>
     <div className="mt-8 p-4 pb-3 text-main hover:underline">
-      <a href="hello">
-        {' '}
-        {title}
-      </a>
+      <a href="hello"> {title}</a>
     </div>
     <div className="p-4 pt-0">
-      <p className="leading-6 text-sm">
-        {desc}
-        {' '}
-      </p>
+      <p className="leading-6 text-sm">{desc} </p>
     </div>
     <div className=" grid justify-items-center py-2 grid-cols-2 my-2 mt-0  mx-32">
       <button type="button">

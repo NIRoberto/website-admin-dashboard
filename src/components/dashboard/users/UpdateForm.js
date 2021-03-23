@@ -9,58 +9,51 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { updateFailed, updateSuccess } from 'redux/action/userProfile';
+import { useHistory } from 'react-router';
 
-const UpdateForm = ({ dark, setOpen }) => {
+const UpdateForm = ({ dark, setOpen, user }) => {
+  const {
+    _id,
+    firstName,
+    lastName,
+    email,
+    desc,
+    profileImage,
+    twitter,
+    facebook,
+    phone,
+    git,
+    location,
+  } = user.user;
+
   const initialValues = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    twitter: '',
-    facebook: '',
-    phone: '',
-    git: '',
-    desc: '',
-    location: '',
+    firstName,
+    lastName,
+    email,
+    twitter,
+    facebook,
+    phone,
+    git,
+    desc,
+    location,
   };
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const onSubmit = (values) => {
-    const user1 = JSON.parse(localStorage.getItem('userInfo'));
-    const { _id } = user1.data.LoggedInAs.user;
-    const {
-      firstName,
-      lastName,
-      email,
-      location,
-      phone,
-      twitter,
-      facebook,
-      git,
-      desc,
-    } = values;
-
-    const newInfo = {
-      firstName,
-      lastName,
-      email,
-      location,
-      phone,
-      twitter,
-      facebook,
-      git,
-      desc,
-    };
-
+  const onSubmit = values => {
     axios
       .patch(
         `https://dashboard-r-api.herokuapp.com/api/v1/users/update/${_id}`,
-        newInfo,
+        values,
       )
-      .then((data) => {
+      .then(data => {
         dispatch(updateSuccess(data));
         toast.success('Profile updated successfully');
+        setTimeout(() => {
+          history.push('/user/profile');
+        }, 3000);
       })
-      .catch((error) => {
+      .catch(error => {
         dispatch(updateFailed(error));
         toast.error(error.message);
       });
@@ -158,7 +151,7 @@ const UpdateForm = ({ dark, setOpen }) => {
                 </label>
                 <Field
                   type="text"
-                  name="dateOfBirth"
+                  name="birthDate"
                   className={`${
                     dark ? 'bg-hoverDark' : ''
                   } border px-2 py-1 rounded-md focus:border-gray-400 focus:outline-none border-gray-400`}
@@ -224,8 +217,9 @@ const UpdateForm = ({ dark, setOpen }) => {
                   Bio
                 </label>
                 <Field
+                  as="textarea"
                   name="desc"
-                  id="bio"
+                  id="desc"
                   className={`${
                     dark ? 'bg-hoverDark  ' : ''
                   }border   h-20  focus:border-gray-400 focus:outline-none  border-gray-400 rounded-md p-2`}
@@ -233,7 +227,7 @@ const UpdateForm = ({ dark, setOpen }) => {
               </div>
             </div>
             <div className="flex  flex-col   w-5/12 md:w-11/12 ml-7  md:ml-10 ">
-              <label htmlFor="Phone" className="my-2 ">
+              <label htmlFor="image" className="my-2 ">
                 {' '}
                 Image
               </label>

@@ -13,7 +13,7 @@ import { useHistory } from 'react-router';
 import { AiFillHome } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
-const Profile = ({ dark, setOpen }) => {
+const Profile = ({ dark, authUser, setOpen }) => {
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
@@ -21,18 +21,17 @@ const Profile = ({ dark, setOpen }) => {
     }
   }, []);
 
-  const user = JSON.parse(localStorage.getItem('userInfo'));
   const {
     firstName,
     lastName,
     phone,
     profileImage,
-    bio,
+    desc,
     location,
     birthDate,
     role,
     email,
-  } = user.data.LoggedInAs.user;
+  } = authUser.user;
 
   return (
     <div
@@ -50,9 +49,7 @@ const Profile = ({ dark, setOpen }) => {
           <span>
             <AiFillHome className="text-main mr-1 mt-1 " />
           </span>
-          /
-          <span className="mx-1">user</span>
-          /
+          /<span className="mx-1">user</span>/
           <span className="mx-1">All users</span>
         </div>
       </div>
@@ -67,7 +64,7 @@ const Profile = ({ dark, setOpen }) => {
             <img src={profileBg} alt="Profile background" className="w-full" />
             <div className="absolute -bottom-8 inset-x-1/3 sm:inset-x-1/3 md:inset-x-2/4">
               <img
-                src={profileImage}
+                src={profileImage || profile}
                 alt="profile"
                 className=" h-24 w-24 md:h-28 md:w-28  ml-4  object-cover rounded-full  border-surface border-8
                 "
@@ -101,8 +98,7 @@ const Profile = ({ dark, setOpen }) => {
               <div className="flex-col flex justify-center items-center mt-3 md:justify-start md:items-start  md:relative  ">
                 <div className="flex ">
                   <span className="md:text-2xl md:absolute   -left-6 bottom-2 pr-4 ">
-                    {`${lastName} ${firstName} `}
-                    {' '}
+                    {`${lastName} ${firstName} `}{' '}
                   </span>
                 </div>
                 <span className="text-gray-500 md:left-3  md:absolute mr-4 md:mr-0 md:ml-5">
@@ -119,8 +115,7 @@ const Profile = ({ dark, setOpen }) => {
                   <span className="text-xs">Contact</span>
                 </div>
                 <span className="text-gray-500 w-full md:w-5/6 ">{phone}</span>
-              </div>
-              {' '}
+              </div>{' '}
               <div className="flex-col flex items-center justify-center md:justify-start  md:items-start my-2">
                 <div className="flex">
                   <span>
@@ -145,8 +140,7 @@ const Profile = ({ dark, setOpen }) => {
                 <a href="#fb">
                   <FiTwitter className="hover:text-main text-xl" />
                 </a>
-              </li>
-              {' '}
+              </li>{' '}
               <li className="ml-8">
                 <a href="#fb">
                   <FiInstagram className="hover:text-main text-xl" />
@@ -175,7 +169,7 @@ const Profile = ({ dark, setOpen }) => {
       >
         <div className="m-4 py-4 border-b  flex items-center border-gray-200 ">
           <img
-            src={profile}
+            src={profileImage}
             alt="profile"
             className="h-20   object-cover rounded-full w-20 border-surface border-8"
           />
@@ -183,7 +177,7 @@ const Profile = ({ dark, setOpen }) => {
         </div>
         <div className="m-4 py-4">
           <h1 className="text-main py-4 ">Bio</h1>
-          <p className="text-sm leading-6">{bio}</p>
+          <p className="text-sm leading-6">{desc}</p>
         </div>
       </div>
     </div>
