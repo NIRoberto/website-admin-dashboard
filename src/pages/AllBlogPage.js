@@ -60,8 +60,7 @@ const AllBlogPage = ({ LOGOUT, user, getAuthProfile }) => {
   );
 };
 const mapStateToProps = state => ({
-  userData: state.profile,
-  user: state.authProfile,
+  user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({
   LOGOUT: () => dispatch(logout()),

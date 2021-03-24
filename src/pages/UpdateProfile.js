@@ -56,7 +56,6 @@ const UpdateProfile = ({ LOGOUT, user, getAuthProfile }) => {
   );
 };
 const mapStateToProps = state => ({
-  userData: state.profile,
   user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({

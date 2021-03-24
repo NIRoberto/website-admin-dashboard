@@ -59,7 +59,6 @@ const Widgets = ({ user, getAuthProfile, LOGOUT }) => {
   );
 };
 const mapStateToProps = state => ({
-  userData: state.profile,
   user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({

@@ -52,7 +52,7 @@ const CreatePost = ({ LOGOUT, user, getAuthProfile }) => {
           Open={Open}
           setOpen={setOpen}
         />
-        <Sidebar dark={Dark} Open={Open} />
+        <Sidebar authUser={user} dark={Dark} Open={Open} />
         <CreateBlog dark={Dark} Open={Open} setOpen={setOpen} />
         <Footer dark={Dark} />
       </div>
@@ -60,7 +60,6 @@ const CreatePost = ({ LOGOUT, user, getAuthProfile }) => {
   );
 };
 const mapStateToProps = state => ({
-  userData: state.profile,
   user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({
