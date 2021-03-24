@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -22,11 +22,12 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 setAuthorizationToken(localStorage.token);
+const composeEnhancers = composeWithDevTools || compose;
 
 const store = createStore(
   persistedReducer,
 
-  composeWithDevTools(applyMiddleware(thunk)),
+  composeEnhancers(applyMiddleware(thunk)),
 );
 const persistor = persistStore(store);
 

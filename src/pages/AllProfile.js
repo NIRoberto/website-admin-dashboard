@@ -25,17 +25,15 @@ const AllProfile = ({
       setLoader(false);
     }, 4000);
   }, []);
-  const authData = user.user.data.data;
-
-  useEffect(() => {
-    getAllProfile();
-    getAuthProfile();
-  }, []);
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
       history.push('/login');
     }
+  }, []);
+  useEffect(() => {
+    getAllProfile();
+    getAuthProfile();
   }, []);
 
   return (
@@ -55,12 +53,12 @@ const AllProfile = ({
         <Navbar
           logout={LOGOUT}
           dark={Dark}
-          user={authData}
+          user={user}
           setDark={setDark}
           Open={Open}
           setOpen={setOpen}
         />
-        <Sidebar authUser={authData} dark={Dark} Open={Open} />
+        <Sidebar authUser={user} dark={Dark} Open={Open} />
         <AllUsers dark={Dark} Open={Open} users={userData} setOpen={setOpen} />
         <Footer dark={Dark} />
       </div>
@@ -69,8 +67,8 @@ const AllProfile = ({
 };
 
 const mapStateToProps = state => ({
-  userData: state.profile,
-  user: state.authProfile,
+  userData: state.profile.userData,
+  user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({
   getAllProfile: () => dispatch(profileActionCreator()),

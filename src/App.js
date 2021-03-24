@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import Login from 'pages/Login';
@@ -17,9 +17,9 @@ import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Router>
+    <Router>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
           <Switch>
             <Route exact path="/">
               <Dashboard />
@@ -30,7 +30,7 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/users">
+            <Route exact path="/users">
               <AllProfile />
             </Route>
             <Route exact path="/user/profile">
@@ -55,9 +55,9 @@ function App() {
               <h1>Not Found</h1>
             </Route>
           </Switch>
-        </Router>
-      </PersistGate>
-    </Provider>
+        </PersistGate>
+      </Provider>
+    </Router>
   );
 }
 export default App;

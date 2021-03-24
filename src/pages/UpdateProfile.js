@@ -1,19 +1,19 @@
-import Footer from 'components/dashboard/Footer';
-import Navbar from 'components/dashboard/Navbar';
-import Sidebar from 'components/dashboard/Sidebar';
-import UpdateForm from 'components/dashboard/users/UpdateForm';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { getSingleActionCreator } from 'redux/action/authProfile';
 import { logout } from 'redux/action/userAction';
+
+import Footer from 'components/dashboard/Footer';
+import Navbar from 'components/dashboard/Navbar';
+import Sidebar from 'components/dashboard/Sidebar';
+import UpdateForm from 'components/dashboard/users/UpdateForm';
 import Loader from 'skeletons/Loader/Loader';
 
 const UpdateProfile = ({ LOGOUT, user, getAuthProfile }) => {
   const [Dark, setDark] = useState(false);
   const [Open, setOpen] = useState(false);
   const [loader, setLoader] = useState(true);
-  const authData = user.user.data.data;
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,6 +23,7 @@ const UpdateProfile = ({ LOGOUT, user, getAuthProfile }) => {
   useEffect(() => {
     getAuthProfile();
   }, []);
+
   return (
     <>
       <div
@@ -41,14 +42,14 @@ const UpdateProfile = ({ LOGOUT, user, getAuthProfile }) => {
         <Navbar
           logout={LOGOUT}
           dark={Dark}
-          user={authData}
+          user={user}
           setDark={setDark}
           Open={Open}
           setOpen={setOpen}
         />
-        <Sidebar authUser={authData} dark={Dark} Open={Open} />
+        <Sidebar authUser={user} dark={Dark} Open={Open} />
 
-        <UpdateForm user={authData} dark={Dark} Open={Open} setOpen={setOpen} />
+        <UpdateForm user={user} dark={Dark} Open={Open} setOpen={setOpen} />
         <Footer dark={Dark} />
       </div>
     </>
@@ -56,7 +57,7 @@ const UpdateProfile = ({ LOGOUT, user, getAuthProfile }) => {
 };
 const mapStateToProps = state => ({
   userData: state.profile,
-  user: state.authProfile,
+  user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({
   LOGOUT: () => dispatch(logout()),

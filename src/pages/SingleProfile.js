@@ -15,21 +15,20 @@ const SingleProfile = ({ LOGOUT, user, getAuthProfile }) => {
   const [Dark, setDark] = useState(false);
   const [Open, setOpen] = useState(false);
   const [loader, setLoader] = useState(true);
-  const authData = user.user.data.data;
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
     }, 4000);
-  }, []);
-
-  useEffect(() => {
-    getAuthProfile();
   }, []);
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
       history.push('/login');
     }
+  }, []);
+
+  useEffect(() => {
+    getAuthProfile();
   }, []);
   return (
     <>
@@ -46,20 +45,15 @@ const SingleProfile = ({ LOGOUT, user, getAuthProfile }) => {
         }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
       >
         <Navbar
-          user={authData}
+          user={user}
           logout={LOGOUT}
           dark={Dark}
           setDark={setDark}
           Open={Open}
           setOpen={setOpen}
         />
-        <Sidebar authUser={authData} dark={Dark} Open={Open} />
-        <Profile
-          authUser={authData}
-          dark={Dark}
-          Open={Open}
-          setOpen={setOpen}
-        />
+        <Sidebar authUser={user} dark={Dark} Open={Open} />
+        <Profile authUser={user} dark={Dark} Open={Open} setOpen={setOpen} />
         <Footer dark={Dark} />
       </div>
     </>
@@ -67,7 +61,7 @@ const SingleProfile = ({ LOGOUT, user, getAuthProfile }) => {
 };
 const mapStateToProps = state => ({
   userData: state.profile,
-  user: state.authProfile,
+  user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({
   LOGOUT: () => dispatch(logout()),

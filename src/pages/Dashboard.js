@@ -10,7 +10,7 @@ import Footer from '../components/dashboard/Footer';
 import Navbar from '../components/dashboard/Navbar';
 import Sidebar from '../components/dashboard/Sidebar';
 
-const Dashboard = ({ LOGOUT, user, getAuthProfile }) => {
+const Dashboard = ({ LOGOUT, user, userData, getAuthProfile }) => {
   const [Dark, setDark] = useState(false);
   const [Open, setOpen] = useState(false);
   const [loader, setLoader] = useState(true);
@@ -23,7 +23,6 @@ const Dashboard = ({ LOGOUT, user, getAuthProfile }) => {
   useEffect(() => {
     getAuthProfile();
   }, []);
-  const authData = user.user.data.data;
 
   const history = useHistory();
   useEffect(() => {
@@ -31,6 +30,7 @@ const Dashboard = ({ LOGOUT, user, getAuthProfile }) => {
       history.push('/login');
     }
   }, []);
+
   return (
     <>
       <div
@@ -48,21 +48,26 @@ const Dashboard = ({ LOGOUT, user, getAuthProfile }) => {
         <Navbar
           logout={LOGOUT}
           dark={Dark}
-          user={authData}
+          user={user}
           setDark={setDark}
           Open={Open}
           setOpen={setOpen}
         />
-        <Sidebar authUser={authData} dark={Dark} Open={Open} />
-        <Content dark={Dark} Open={Open} setOpen={setOpen} />
+        <Sidebar authUser={user} dark={Dark} Open={Open} />
+        <Content
+          userData={userData}
+          dark={Dark}
+          Open={Open}
+          setOpen={setOpen}
+        />
         <Footer dark={Dark} />
       </div>
     </>
   );
 };
 const mapStateToProps = state => ({
-  userData: state.profile,
-  user: state.authProfile,
+  userData: state.profile.userData,
+  user: state.authProfile.user,
 });
 const mapDispatchToProps = dispatch => ({
   LOGOUT: () => dispatch(logout()),

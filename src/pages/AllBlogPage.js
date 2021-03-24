@@ -23,14 +23,13 @@ const AllBlogPage = ({ LOGOUT, user, getAuthProfile }) => {
   useEffect(() => {
     getAuthProfile();
   }, []);
-  const authData = user.user.data.data;
-
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.token) {
       history.push('/login');
     }
   }, []);
+
   return (
     <>
       <div
@@ -48,12 +47,12 @@ const AllBlogPage = ({ LOGOUT, user, getAuthProfile }) => {
         <Navbar
           logout={LOGOUT}
           dark={Dark}
-          user={authData}
+          user={user}
           setDark={setDark}
           Open={Open}
           setOpen={setOpen}
         />
-        <Sidebar authUser={authData} dark={Dark} Open={Open} />
+        <Sidebar authUser={user} dark={Dark} Open={Open} />
         <AllBlog dark={Dark} Open={Open} setOpen={setOpen} />
         <Footer dark={Dark} />
       </div>
