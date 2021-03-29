@@ -9,6 +9,7 @@ import Navbar from 'components/dashboard/Navbar';
 import Sidebar from 'components/dashboard/Sidebar';
 import UpdateForm from 'components/dashboard/users/UpdateForm';
 import Loader from 'skeletons/Loader/Loader';
+import { Redirect } from 'react-router';
 
 const UpdateProfile = ({ LOGOUT, user, getAuthProfile }) => {
   const [Dark, setDark] = useState(false);
@@ -26,32 +27,38 @@ const UpdateProfile = ({ LOGOUT, user, getAuthProfile }) => {
 
   return (
     <>
-      <div
-        className={`${
-          loader ? 'flex items-center justify-center h-screen' : 'hidden'
-        }`}
-      >
-        <Loader />
-      </div>
-      <div
-        className={`${
-          loader ? 'hidden' : 'grid'
-        }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
-      >
-        <ToastContainer />
-        <Navbar
-          logout={LOGOUT}
-          dark={Dark}
-          user={user}
-          setDark={setDark}
-          Open={Open}
-          setOpen={setOpen}
-        />
-        <Sidebar authUser={user} dark={Dark} Open={Open} />
+      {!localStorage.token ? (
+        <Redirect to="/login" />
+      ) : (
+        <>
+          <div
+            className={`${
+              loader ? 'flex items-center justify-center h-screen' : 'hidden'
+            }`}
+          >
+            <Loader />
+          </div>
+          <div
+            className={`${
+              loader ? 'hidden' : 'grid'
+            }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
+          >
+            <ToastContainer />
+            <Navbar
+              logout={LOGOUT}
+              dark={Dark}
+              user={user}
+              setDark={setDark}
+              Open={Open}
+              setOpen={setOpen}
+            />
+            <Sidebar authUser={user} dark={Dark} Open={Open} />
 
-        <UpdateForm user={user} dark={Dark} Open={Open} setOpen={setOpen} />
-        <Footer dark={Dark} />
-      </div>
+            <UpdateForm user={user} dark={Dark} Open={Open} setOpen={setOpen} />
+            <Footer dark={Dark} />
+          </div>
+        </>
+      )}
     </>
   );
 };

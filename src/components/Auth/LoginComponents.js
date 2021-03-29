@@ -35,13 +35,10 @@ const LoginComponents = () => {
 
         localStorage.setItem('token', data.data.token);
         setAuthorizationToken(data.data.token);
-        toast.success('User login successfully');
+        toast.success('Login success');
 
         setTimeout(() => {
           history.push('/user/profile');
-          setTimeout(() => {
-            toast.success(`Welcome ${data.data.message}`);
-          }, 8000);
         }, 3000);
       })
       .catch(error => {

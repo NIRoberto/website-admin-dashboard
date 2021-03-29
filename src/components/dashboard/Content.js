@@ -53,11 +53,7 @@ const Content = ({ dark, setOpen, userData }) => {
         >
           <div className="flex flex-col ">
             <span className="">Users</span>
-            <CountUp
-              className="font-bold text-xl"
-              end={userData.length}
-              duration={5}
-            />
+            <CountUp className="font-bold text-xl" end={4040} duration={5} />
           </div>
           <div>
             <span className="text-5xl ">

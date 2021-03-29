@@ -40,7 +40,6 @@ const logout = () => dispatch => {
   if (localStorage.token) {
     localStorage.removeItem('token');
     dispatch(logoutSuccess);
-    toast.success('user logout successfully');
   } else {
     dispatch(logoutFailed);
     toast.Info('User already');

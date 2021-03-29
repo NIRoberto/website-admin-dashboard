@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { Redirect } from 'react-router';
 import { getSingleActionCreator } from 'redux/action/authProfile';
 import { connect } from 'react-redux';
 import { logout } from 'redux/action/userAction';
@@ -20,41 +20,39 @@ const Widgets = ({ user, getAuthProfile, LOGOUT }) => {
       setLoader(false);
     }, 4000);
   }, []);
-  const history = useHistory();
-  useEffect(() => {
-    if (!localStorage.token) {
-      history.push('/login');
-    }
-  }, []);
-
-  const authData = user;
 
   return (
     <>
-      <div
-        className={`${
-          loader ? 'flex items-center justify-center h-screen' : 'hidden'
-        }`}
-      >
-        <Loader />
-      </div>
-      <div
-        className={`${
-          loader ? 'hidden' : 'grid'
-        }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
-      >
-        <Navbar
-          dark={Dark}
-          logout={LOGOUT}
-          user={user}
-          setDark={setDark}
-          Open={Open}
-          setOpen={setOpen}
-        />
-        <Sidebar authUser={user} dark={Dark} Open={Open} />
-        <Widget dark={Dark} Open={Open} setOpen={setOpen} />
-        <Footer dark={Dark} />
-      </div>
+      {!localStorage.token ? (
+        <Redirect to="/login" />
+      ) : (
+        <>
+          <div
+            className={`${
+              loader ? 'flex items-center justify-center h-screen' : 'hidden'
+            }`}
+          >
+            <Loader />
+          </div>
+          <div
+            className={`${
+              loader ? 'hidden' : 'grid'
+            }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
+          >
+            <Navbar
+              dark={Dark}
+              logout={LOGOUT}
+              user={user}
+              setDark={setDark}
+              Open={Open}
+              setOpen={setOpen}
+            />
+            <Sidebar authUser={user} dark={Dark} Open={Open} />
+            <Widget dark={Dark} Open={Open} setOpen={setOpen} />
+            <Footer dark={Dark} />
+          </div>
+        </>
+      )}
     </>
   );
 };

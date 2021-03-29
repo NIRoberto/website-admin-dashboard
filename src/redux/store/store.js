@@ -9,6 +9,7 @@ import profileReducer from 'redux/reducers/profileReducer';
 import userReducer from 'redux/reducers/userReducer';
 import setAuthorizationToken from 'utils/setAuth';
 import authProfileReducer from 'redux/reducers/authProfileReducer';
+import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 
 const rootReducer = combineReducers({
   auth: userReducer,
@@ -16,8 +17,9 @@ const rootReducer = combineReducers({
   authProfile: authProfileReducer,
 });
 const persistConfig = {
-  key: 'root',
+  key: 'app',
   storage,
+  stateReconciler: autoMergeLevel2,
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

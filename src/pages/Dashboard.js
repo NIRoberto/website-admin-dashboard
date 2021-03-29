@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 import { logout } from 'redux/action/userAction';
 import { getSingleActionCreator } from 'redux/action/authProfile';
 
@@ -33,35 +33,41 @@ const Dashboard = ({ LOGOUT, user, userData, getAuthProfile }) => {
 
   return (
     <>
-      <div
-        className={`${
-          loader ? 'flex items-center justify-center h-screen' : 'hidden'
-        }`}
-      >
-        <Loader />
-      </div>
-      <div
-        className={`${
-          loader ? 'hidden' : 'grid'
-        }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
-      >
-        <Navbar
-          logout={LOGOUT}
-          dark={Dark}
-          user={user}
-          setDark={setDark}
-          Open={Open}
-          setOpen={setOpen}
-        />
-        <Sidebar authUser={user} dark={Dark} Open={Open} />
-        <Content
-          userData={userData}
-          dark={Dark}
-          Open={Open}
-          setOpen={setOpen}
-        />
-        <Footer dark={Dark} />
-      </div>
+      {!localStorage.token ? (
+        <Redirect to="/login" />
+      ) : (
+        <>
+          <div
+            className={`${
+              loader ? 'flex items-center justify-center h-screen' : 'hidden'
+            }`}
+          >
+            <Loader />
+          </div>
+          <div
+            className={`${
+              loader ? 'hidden' : 'grid'
+            }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
+          >
+            <Navbar
+              logout={LOGOUT}
+              dark={Dark}
+              user={user}
+              setDark={setDark}
+              Open={Open}
+              setOpen={setOpen}
+            />
+            <Sidebar authUser={user} dark={Dark} Open={Open} />
+            <Content
+              userData={userData}
+              dark={Dark}
+              Open={Open}
+              setOpen={setOpen}
+            />
+            <Footer dark={Dark} />
+          </div>
+        </>
+      )}
     </>
   );
 };
