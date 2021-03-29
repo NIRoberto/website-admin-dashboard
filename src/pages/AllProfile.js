@@ -4,7 +4,7 @@ import Sidebar from 'components/dashboard/Sidebar';
 import AllUsers from 'components/dashboard/users/AllUsers';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 import { getSingleActionCreator } from 'redux/action/authProfile';
 import { logout } from 'redux/action/userAction';
 import { profileActionCreator } from 'redux/action/userProfile';
@@ -38,30 +38,41 @@ const AllProfile = ({
 
   return (
     <>
-      <div
-        className={`${
-          loader ? 'flex items-center justify-center h-screen' : 'hidden'
-        }`}
-      >
-        <Loader />
-      </div>
-      <div
-        className={`${
-          loader ? 'hidden' : 'grid'
-        }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
-      >
-        <Navbar
-          logout={LOGOUT}
-          dark={Dark}
-          user={user}
-          setDark={setDark}
-          Open={Open}
-          setOpen={setOpen}
-        />
-        <Sidebar authUser={user} dark={Dark} Open={Open} />
-        <AllUsers dark={Dark} Open={Open} users={userData} setOpen={setOpen} />
-        <Footer dark={Dark} />
-      </div>
+      {!localStorage.token ? (
+        <Redirect to="/login" />
+      ) : (
+        <>
+          <div
+            className={`${
+              loader ? 'flex items-center justify-center h-screen' : 'hidden'
+            }`}
+          >
+            <Loader />
+          </div>
+          <div
+            className={`${
+              loader ? 'hidden' : 'grid'
+            }   grid-cols-1 lg:grid-cols-main font-body  grid-rows-main`}
+          >
+            <Navbar
+              logout={LOGOUT}
+              dark={Dark}
+              user={user}
+              setDark={setDark}
+              Open={Open}
+              setOpen={setOpen}
+            />
+            <Sidebar authUser={user} dark={Dark} Open={Open} />
+            <AllUsers
+              dark={Dark}
+              Open={Open}
+              users={userData}
+              setOpen={setOpen}
+            />
+            <Footer dark={Dark} />
+          </div>
+        </>
+      )}
     </>
   );
 };

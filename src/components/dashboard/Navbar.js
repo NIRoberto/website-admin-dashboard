@@ -29,13 +29,8 @@ const Navbar = ({ dark, Open, user, setDark, setOpen, logout }) => {
 
     setTimeout(() => {
       history.push('/login');
-    }, 3000);
+    }, 1000);
   };
-  useEffect(() => {
-    if (!localStorage.token) {
-      history.push('/login');
-    }
-  }, []);
 
   return (
     <div

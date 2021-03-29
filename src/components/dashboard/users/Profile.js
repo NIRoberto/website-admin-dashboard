@@ -74,13 +74,13 @@ const Profile = ({ dark, authUser, setOpen }) => {
           <div className=" border-b grid  m-2 md:m-4 p-4 md:p-8 grid-cols-1 md:grid-cols-3 border-gray-200">
             <div className="  flex flex-col-reverse items-center justify-center md:grid col-span-2  md:grid-cols-3 ">
               <div className="flex-col flex items-center justify-center md:justify-start  md:items-start my-2 ml-3">
-                <div className="flex">
+                <div className="flex w-1/3">
                   <span>
                     <MdEmail />
                   </span>
                   <span className="text-xs">Email</span>
                 </div>
-                <span className="text-gray-500 text-sm md:w-5/12 ">
+                <span className="text-gray-500 text-sm  md:w-5/12 ">
                   {email}
                 </span>
               </div>
@@ -97,7 +97,7 @@ const Profile = ({ dark, authUser, setOpen }) => {
               </div>
               <div className="flex-col flex justify-center items-center mt-3 md:justify-start md:items-start  md:relative  ">
                 <div className="flex ">
-                  <span className="md:text-2xl md:absolute   -left-6 bottom-2 pr-4 ">
+                  <span className="  md:text-2xl md:absolute md:-left-6 bottom-2 pr-4 ">
                     {`${lastName} ${firstName} `}{' '}
                   </span>
                 </div>
