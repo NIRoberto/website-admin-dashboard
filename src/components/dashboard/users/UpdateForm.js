@@ -12,32 +12,32 @@ import { updateFailed, updateSuccess } from 'redux/action/userProfile';
 import { useHistory } from 'react-router';
 
 const UpdateForm = ({ dark, setOpen, user }) => {
-  const {
-    _id,
-    firstName,
-    lastName,
-    email,
-    desc,
-    profileImage,
-    twitter,
-    facebook,
-    phone,
-    birthDate,
-    git,
-    location,
-  } = user;
+  // const {
+  //   _id,
+  //   firstName,
+  //   lastName,
+  //   email,
+  //   desc,
+  //   profileImage,
+  //   twitter,
+  //   facebook,
+  //   phone,
+  //   birthDate,
+  //   git,
+  //   location,
+  // } = user;
 
   const initialValues = {
-    firstName,
-    lastName,
-    email,
-    twitter,
-    facebook,
-    birthDate,
-    phone,
-    git,
-    desc,
-    location,
+    firstName: '',
+    lastName: '',
+    email: '',
+    twitter: '',
+    facebook: '',
+    birthDate: '',
+    phone: '',
+    git: '',
+    desc: '',
+    location: '',
   };
   const dispatch = useDispatch();
   const history = useHistory();
@@ -56,7 +56,7 @@ const UpdateForm = ({ dark, setOpen, user }) => {
 
     axios
       .patch(
-        `https://dashboard-r-api.herokuapp.com/api/v1/users/update/${_id}`,
+        `https://dashboard-r-api.herokuapp.com/api/v1/users/update/`,
         newInfo,
       )
       .then(data => {
