@@ -21,7 +21,7 @@ const Navbar = ({ dark, Open, user, setDark, setOpen, logout }) => {
   const [notice, setNotice] = useState(false);
   const [Log, setLog] = useState(false);
   const [message, setMessage] = useState(false);
-  const { profileImage } = user;
+  // const { profileImage } = user;
   const history = useHistory();
 
   const Logout = () => {
@@ -307,7 +307,7 @@ const Navbar = ({ dark, Open, user, setDark, setOpen, logout }) => {
           <div>
             <img
               className="w-9 h-9 rounded-full  object-cover cursor-pointer relative "
-              src={profileImage || blank}
+              src={blank}
               alt="profile"
               onClick={() => setLog(!Log)}
             />

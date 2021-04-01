@@ -19,6 +19,7 @@ import 'react-tippy/dist/tippy.css';
 
 import { Tooltip } from 'react-tippy';
 import { MdEmail, MdWidgets } from 'react-icons/md';
+import blank from 'assets/img/profile.png';
 
 import { SiUikit, SiWebauthn } from 'react-icons/si';
 import logo from 'assets/img/Eo_circle_light-blue_white_letter-r.svg';
@@ -39,7 +40,7 @@ const Sidebar = ({ dark, authUser, Open }) => {
   const [Button, setButton] = useState(false);
   const [Tables, setTables] = useState(false);
 
-  const { firstName, lastName, profileImage, role } = authUser;
+  // const { firstName, lastName, profileImage, role } = authUser;
 
   const history = useHistory();
   useEffect(() => {
@@ -73,14 +74,21 @@ const Sidebar = ({ dark, authUser, Open }) => {
         <div className="flex-col flex  items-center justify-center border-b border-line p-4">
           <div>
             <img
-              src={profileImage}
+              // src={profileImage}
+              src={blank}
               alt="profile"
               className="w-16 h-16 object-cover rounded-full"
             />
           </div>
           <div className="w-full flex justify-center flex-col items-center ">
-            <span className="text-base ">{`${firstName} ${lastName}`}</span>
-            <span className="text-xs">{role}</span>
+            <span className="text-base ">
+              {/* {`${firstName} ${lastName}`} */}
+              Robert Niyitanga
+            </span>
+            <span className="text-xs">
+              {/* {role} */}
+              admin
+            </span>
             <ul className="flex justify-around  mt-3 w-full ">
               <li>
                 <a href="#m" className="text-sm">

@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "formik": "^2.2.6",
+    "history": "^4.10.1",
     "http-proxy-middleware": "^0.19.1",
     "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",
@@ -23,6 +24,7 @@
     "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-router-redux": "^4.0.8",
     "react-scripts": "4.0.3",
     "react-spinners": "^0.10.6",
     "react-tippy": "^1.4.0",
@@ -76,6 +78,5 @@
     "postcss": "^7.0.35",
     "prettier": "^2.2.1",
     "redux-logger": "^3.0.6"
-  },
-  "proxy": "https://dashboard-r-api.herokuapp.com"
+  }
 }
