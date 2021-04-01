@@ -31,11 +31,10 @@ const LoginComponents = () => {
     axios
       .post('https://dashboard-r-api.herokuapp.com/api/v1/users/signin', user)
       .then(data => {
-        dispatch(loginSuccess(data));
-
         localStorage.setItem('token', data.data.token);
         setAuthorizationToken(data.data.token);
         toast.success('Login success');
+        dispatch(loginSuccess(data));
 
         setTimeout(() => {
           history.push('/user/profile');

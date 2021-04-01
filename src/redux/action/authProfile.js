@@ -16,10 +16,12 @@ const getSingleFailed = error => ({
 });
 
 const getSingleActionCreator = () => dispatch => {
+  const source = axios.CancelToken.source();
+  const config = { cancelToken: source.token };
   dispatch(getSingleRequest);
 
   axios
-    .get(`https://dashboard-r-api.herokuapp.com/api/v1/users/user/`)
+    .get(`https://dashboard-r-api.herokuapp.com/api/v1/users/user/`, config)
     .then(res => {
       const data1 = res.data.data.user;
       dispatch(getSingleSuccess(data1));

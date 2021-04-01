@@ -21,17 +21,17 @@ const Profile = ({ dark, authUser, setOpen }) => {
     }
   }, []);
 
-  const {
-    firstName,
-    lastName,
-    phone,
-    profileImage,
-    desc,
-    location,
-    birthDate,
-    role,
-    email,
-  } = authUser;
+  // const {
+  //   firstName,
+  //   lastName,
+  //   phone,
+  //   profileImage,
+  //   desc,
+  //   location,
+  //   birthDate,
+  //   role,
+  //   email,
+  // } = authUser;
 
   return (
     <div
@@ -64,7 +64,7 @@ const Profile = ({ dark, authUser, setOpen }) => {
             <img src={profileBg} alt="Profile background" className="w-full" />
             <div className="absolute -bottom-8 inset-x-1/3 sm:inset-x-1/3 md:inset-x-2/4">
               <img
-                src={profileImage || profile}
+                src={profile}
                 alt="profile"
                 className=" h-24 w-24 md:h-28 md:w-28  ml-4  object-cover rounded-full  border-surface border-8
                 "
@@ -81,7 +81,8 @@ const Profile = ({ dark, authUser, setOpen }) => {
                   <span className="text-xs">Email</span>
                 </div>
                 <span className="text-gray-500 text-sm  md:w-5/12 ">
-                  {email}
+                  {/* {email} */}
+                  robert@gmail.com
                 </span>
               </div>
               <div className="flex-col flex mt-2 items-center justify-center md:justify-start  md:items-start md:my-2  ">
@@ -92,17 +93,20 @@ const Profile = ({ dark, authUser, setOpen }) => {
                   <span className="text-xs">BRD</span>
                 </div>
                 <span className="text-gray-500 w-full md:w-5/6 ">
-                  {birthDate}
+                  {/* {birthDate} */}
+                  2010/12/32
                 </span>
               </div>
               <div className="flex-col flex justify-center items-center mt-3 md:justify-start md:items-start  md:relative  ">
                 <div className="flex ">
                   <span className="  md:text-2xl md:absolute md:-left-6 bottom-2 pr-4 ">
-                    {`${lastName} ${firstName} `}{' '}
+                    {/* {`${lastName} ${firstName} `}{' '} */}
+                    Robert Niyitanga
                   </span>
                 </div>
                 <span className="text-gray-500 md:left-3  md:absolute mr-4 md:mr-0 md:ml-5">
-                  {role}
+                  {/* {role} */}
+                  admin
                 </span>
               </div>
             </div>
@@ -114,7 +118,10 @@ const Profile = ({ dark, authUser, setOpen }) => {
                   </span>
                   <span className="text-xs">Contact</span>
                 </div>
-                <span className="text-gray-500 w-full md:w-5/6 ">{phone}</span>
+                <span className="text-gray-500 w-full md:w-5/6 ">
+                  {/* {phone} */}
+                  +250787424245
+                </span>
               </div>{' '}
               <div className="flex-col flex items-center justify-center md:justify-start  md:items-start my-2">
                 <div className="flex">
@@ -124,7 +131,8 @@ const Profile = ({ dark, authUser, setOpen }) => {
                   <span className="text-xs">Location</span>
                 </div>
                 <span className=" text-gray-500  w-full md:w-5/6  ">
-                  {location}
+                  {/* {location} */}
+                  huye
                 </span>
               </div>
             </div>
@@ -169,15 +177,23 @@ const Profile = ({ dark, authUser, setOpen }) => {
       >
         <div className="m-4 py-4 border-b  flex items-center border-gray-200 ">
           <img
-            src={profileImage}
+            // src={profileImage}
+            src={profile}
             alt="profile"
             className="h-20   object-cover rounded-full w-20 border-surface border-8"
           />
-          <span className="ml-2 text-sm">{`${firstName} ${lastName}`}</span>
+          <span className="ml-2 text-sm">
+            {/* {`${firstName} ${lastName}`} */}
+            Robert Niyitanga
+          </span>
         </div>
         <div className="m-4 py-4">
           <h1 className="text-main py-4 ">Bio</h1>
-          <p className="text-sm leading-6">{desc}</p>
+          <p className="text-sm leading-6">
+            {/* {desc} */}
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab ipsa
+            quam voluptates rem vitae, nulla voluptatem tempore deleniti
+          </p>
         </div>
       </div>
     </div>

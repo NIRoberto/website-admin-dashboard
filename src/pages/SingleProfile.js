@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
@@ -23,8 +24,9 @@ const SingleProfile = ({ LOGOUT, user, getAuthProfile }) => {
 
   useEffect(() => {
     getAuthProfile();
+
+    return () => {};
   }, []);
-  console.log(user);
   return (
     <>
       {!localStorage.token ? (
@@ -33,7 +35,7 @@ const SingleProfile = ({ LOGOUT, user, getAuthProfile }) => {
         <>
           <div
             className={`${
-              loader ? 'flex items-center justify-center h-screen' : 'hidden'
+              loader ? 'flex items-center  justify-center h-screen' : 'hidden'
             }`}
           >
             <Loader />
