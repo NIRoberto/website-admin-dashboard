@@ -1,6 +1,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c9900a96-ec07-4d51-8155-f7ad0c9a8e06/deploy-status)](https://app.netlify.com/sites/admin-dashboard-template/deploys)
 [![CI/CD](https://github.com/NIRoberto/website-admin-dashboard/actions/workflows/ci.yaml/badge.svg)](https://github.com/NIRoberto/website-admin-dashboard/actions/workflows/ci.yaml)
 
+<img width="960" alt="Capture" src="https://user-images.githubusercontent.com/68561655/113695148-d53f6e00-96d0-11eb-9909-8cfb58a07ad6.PNG">
+
 # Admin dashboard
 
 # Dependencies ⚙︎
